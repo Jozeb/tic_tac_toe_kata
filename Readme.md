@@ -1,8 +1,3 @@
-# Instructions
-
-
-1. TicTac takes player and computer input as array of integer.
-2. Each box is identified by a single integer, for reference look at the image below
 ![alt text](tictac.png8.png "Logo Title Text 1")
 
 # Rules for tests
