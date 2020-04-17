@@ -1,4 +1,4 @@
-#Instructions
+# Instructions
 
 
 1. TicTac takes player and computer input as array of integer.
