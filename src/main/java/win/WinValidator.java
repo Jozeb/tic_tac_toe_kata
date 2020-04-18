@@ -1,6 +1,8 @@
 package win;
 
 import board.Board;
+import board.Positions;
+import board.RowPositions;
 
 import java.util.Arrays;
 import java.util.List;

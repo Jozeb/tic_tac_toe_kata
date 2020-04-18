@@ -1,6 +1,4 @@
-package win;
-
-import board.Position;
+package board;
 
 import java.util.stream.IntStream;
 

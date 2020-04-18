@@ -1,4 +1,4 @@
-package win;
+package board;
 
 import board.Position;
 

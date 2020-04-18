@@ -5,7 +5,7 @@ import board.Position;
 import exception.PositionAlreadyFilledException;
 import exception.WrongMoveException;
 import turn.TurnCheckers;
-import win.Positions;
+import board.Positions;
 import win.WinValidator;
 
 import java.util.Optional;
