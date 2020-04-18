@@ -2,18 +2,26 @@ package board;
 
 import exception.PlayCrossException;
 import exception.PlayNoughtException;
+import exception.WrongMoveException;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static board.Marker.NOUGHT;
+import static board.Marker.CROSS;
 
 public class Turn {
 
     Marker marker = null;
 
-    public void check(Marker marker) throws PlayCrossException, PlayNoughtException {
+    Map<Marker, WrongMoveException> EXCEPTION_TO_THROW_FOR_MARKER = new HashMap() {{
+        put(NOUGHT, new PlayCrossException());
+        put(CROSS, new PlayNoughtException());
+    }};
+
+    public void check(Marker marker) throws WrongMoveException {
         if (lastMarkerAlso(marker)) {
-            if (marker.isNought()) {
-                throw new PlayCrossException();
-            } else {
-                throw new PlayNoughtException();
-            }
+            throw EXCEPTION_TO_THROW_FOR_MARKER.get(marker);
         }
         this.marker = marker;
     }
