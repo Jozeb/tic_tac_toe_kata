@@ -22,4 +22,8 @@ public class TicTacGame {
             throw new OverlappingException();
         }
     }
+
+    public String checkForRow() {
+        return "Player Won";
+    }
 }
