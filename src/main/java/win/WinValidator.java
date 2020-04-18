@@ -15,7 +15,8 @@ public class WinValidator {
             new RowPositions(1),
             new RowPositions(2),
             new RowPositions(3),
-            new ColumnPositions(1)
+            new ColumnPositions(1),
+            new ColumnPositions(2)
     );
 
     public Optional<Positions> isWin(Board board) {
