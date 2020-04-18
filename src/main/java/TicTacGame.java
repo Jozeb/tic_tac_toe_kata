@@ -9,14 +9,17 @@ public class TicTacGame {
 
     Board board = new Board();
 
+    boolean crossPlayed = false;
+
     public void play(Marker marker, Position position) throws PositionAlreadyFilledException, PlayCrossFirstException {
-        if (NOUGHT == marker && !board.contains(CROSS)) {
+        if (NOUGHT == marker && !crossPlayed) {
             throw new PlayCrossFirstException();
         }
 
         if (board.contains(position)) {
             throw new PositionAlreadyFilledException();
         }
+        crossPlayed = true;
         board.add(position, marker);
     }
 
