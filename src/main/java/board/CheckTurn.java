@@ -2,6 +2,6 @@ package board;
 
 import exception.WrongMoveException;
 
-interface CheckTurn {
+public interface CheckTurn {
     void forThe(Marker marker) throws WrongMoveException;
 }
