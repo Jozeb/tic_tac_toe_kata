@@ -8,22 +8,22 @@ import java.util.Optional;
 
 public class WinValidator {
 
-    static final List<WinningPositions> ALL_WINNING_POSITIONS = Arrays.asList(
-            new RowWinningPositions(1),
-            new RowWinningPositions(2),
-            new RowWinningPositions(3)
+    static final List<Positions> ALL_WINNING_POSITIONS = Arrays.asList(
+            new RowPositions(1),
+            new RowPositions(2),
+            new RowPositions(3)
     );
 
-    public Optional<WinningPositions> isWin(Board board) {
-        for (WinningPositions winningPositions: ALL_WINNING_POSITIONS) {
-            if (markersAreAllTheSameAt(board, winningPositions)) {
-                return Optional.of(winningPositions);
+    public Optional<Positions> isWin(Board board) {
+        for (Positions positions : ALL_WINNING_POSITIONS) {
+            if (markersAreAllTheSameAt(board, positions)) {
+                return Optional.of(positions);
             }
         }
         return Optional.empty();
     }
 
-    private boolean markersAreAllTheSameAt(Board board, WinningPositions winningPositions) {
-        return winningPositions.stream().map(board::whatIsAt).distinct().count() == 1;
+    private boolean markersAreAllTheSameAt(Board board, Positions positions) {
+        return positions.stream().map(board::whatIsAt).distinct().count() == 1;
     }
 }

@@ -5,7 +5,7 @@ import board.Position;
 import exception.PositionAlreadyFilledException;
 import exception.WrongMoveException;
 import turn.TurnCheckers;
-import win.WinningPositions;
+import win.Positions;
 import win.WinValidator;
 
 import java.util.Optional;
@@ -35,7 +35,7 @@ public class TicTacGame {
     }
 
     public Outcome outcome() {
-        Optional<WinningPositions> winningPositions = winValidator.isWin(board);
+        Optional<Positions> winningPositions = winValidator.isWin(board);
         if (winningPositions.isPresent()
                 && whatIs(winningPositions.get().any()) == NOUGHT) {
             return NOUGHTS_WON;
