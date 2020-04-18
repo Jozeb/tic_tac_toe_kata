@@ -6,7 +6,10 @@ import exception.PositionAlreadyFilledException;
 import exception.WrongMoveException;
 import turn.TurnCheckers;
 
+import static board.Marker.NOUGHT;
 import static board.Outcome.CROSS_WON;
+import static board.Outcome.NOUGHTS_WON;
+import static board.Position.at;
 
 public class TicTacGame {
 
@@ -27,6 +30,12 @@ public class TicTacGame {
     }
 
     public Outcome outcome() {
+        Marker marker = whatIs(at(1, 1));
+        if (marker == whatIs(at(1, 2)) && marker == whatIs(at(1,3))) {
+            if (marker == NOUGHT) {
+                return NOUGHTS_WON;
+            }
+        }
         return CROSS_WON;
     }
 }

@@ -72,7 +72,7 @@ public class TicTacGameShould {
     }
 
     @Test
-    public void winWhenCrossLinedUpInFirstRow() throws WrongMoveException {
+    public void winWhenCrossesLinedUpInFirstRow() throws WrongMoveException {
         TicTacGame ticTacGame = new TicTacGame();
         ticTacGame.play(CROSS, at(1, 1));
         ticTacGame.play(NOUGHT, at(2, 1));
@@ -80,5 +80,17 @@ public class TicTacGameShould {
         ticTacGame.play(NOUGHT, at(2, 2));
         ticTacGame.play(CROSS, at(1, 3));
         assert ticTacGame.outcome() == Outcome.CROSS_WON;
+    }
+
+    @Test
+    public void winWhenNoughtsLinedUpInFirstRow() throws WrongMoveException {
+        TicTacGame ticTacGame = new TicTacGame();
+        ticTacGame.play(CROSS, at(2, 1));
+        ticTacGame.play(NOUGHT, at(1, 1));
+        ticTacGame.play(CROSS, at(2, 2));
+        ticTacGame.play(NOUGHT, at(1, 2));
+        ticTacGame.play(CROSS, at(3, 3));
+        ticTacGame.play(NOUGHT, at(1, 3));
+        assert ticTacGame.outcome() == Outcome.NOUGHTS_WON;
     }
 }
