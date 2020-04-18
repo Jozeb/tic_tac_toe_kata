@@ -1,26 +1,22 @@
 import board.Board;
-import board.FirstCross;
+import board.FirstMove;
 import board.Marker;
 import board.Position;
-
-import static board.Marker.CROSS;
-import static board.Marker.NOUGHT;
+import exception.PlayCrossFirstException;
+import exception.PositionAlreadyFilledException;
 
 public class TicTacGame {
 
     Board board = new Board();
 
-    FirstCross crossPlayed = new FirstCross();
+    FirstMove firstMove = new FirstMove();
 
     public void play(Marker marker, Position position) throws PositionAlreadyFilledException, PlayCrossFirstException {
-        if (NOUGHT == marker && !crossPlayed.played()) {
-            throw new PlayCrossFirstException();
-        }
+        firstMove.check(marker);
 
         if (board.contains(position)) {
             throw new PositionAlreadyFilledException();
         }
-        crossPlayed.play();
         board.add(position, marker);
     }
 

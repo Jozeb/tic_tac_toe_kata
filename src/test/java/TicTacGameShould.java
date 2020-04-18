@@ -1,4 +1,5 @@
-import board.Marker;
+import exception.PlayCrossFirstException;
+import exception.PositionAlreadyFilledException;
 import org.junit.Test;
 
 import static board.Marker.CROSS;
