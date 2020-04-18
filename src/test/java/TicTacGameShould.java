@@ -1,5 +1,6 @@
 import exception.PlayCrossException;
 import exception.PlayCrossFirstException;
+import exception.PlayNoughtException;
 import exception.PositionAlreadyFilledException;
 import exception.WrongMoveException;
 import org.junit.Test;
@@ -53,5 +54,12 @@ public class TicTacGameShould {
         ticTacGame.play(CROSS, at(1, 1));
         ticTacGame.play(NOUGHT, at(1, 2));
         ticTacGame.play(NOUGHT, at(1, 3));
+    }
+
+    @Test(expected = PlayNoughtException.class)
+    public void notAllowCrossToPlayTwice() throws WrongMoveException {
+        TicTacGame ticTacGame = new TicTacGame();
+        ticTacGame.play(CROSS, at(1, 1));
+        ticTacGame.play(CROSS, at(1, 2));
     }
 }

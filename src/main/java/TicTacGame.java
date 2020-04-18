@@ -4,8 +4,11 @@ import board.Marker;
 import board.Position;
 import exception.PlayCrossException;
 import exception.PlayCrossFirstException;
+import exception.PlayNoughtException;
 import exception.PositionAlreadyFilledException;
 import exception.WrongMoveException;
+
+import static board.Marker.NOUGHT;
 
 public class TicTacGame {
 
@@ -18,7 +21,11 @@ public class TicTacGame {
     public void play(Marker marker, Position position) throws WrongMoveException {
         firstMove.check(marker);
         if (marker == lastMoveBy) {
-            throw new PlayCrossException();
+            if (marker == NOUGHT) {
+                throw new PlayCrossException();
+            } else {
+                throw new PlayNoughtException();
+            }
         }
 
         if (board.contains(position)) {
