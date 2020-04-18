@@ -29,4 +29,11 @@ public class TicTacGameTest {
     ticTacGame.player1Move(3);
   }
 
+  @Test(expected = Exception.class)
+  public void ensurePlayer2CannotMoveTwiceConsecutively() throws Exception {
+    TicTacGame ticTacGame = new TicTacGame();
+    ticTacGame.player2Move(3);
+    ticTacGame.player2Move(3);
+  }
+
 }
