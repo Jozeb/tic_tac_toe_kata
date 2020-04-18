@@ -45,4 +45,11 @@ public class TicTacGame {
     public List<Character> getBoard() {
         return board;
     }
+
+    public String getGameCondition() {
+        if (board.get(0) == playerX && board.get(1) == playerX && board.get(2) == playerX){
+            return "Player X Wins";
+        }
+        return "";
+    }
 }

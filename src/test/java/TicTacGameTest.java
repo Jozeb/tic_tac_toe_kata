@@ -59,22 +59,38 @@ public class TicTacGameTest {
         }
     }
 
-  /**
-   * When unknown player made a move
-   *
-   */
+    /**
+     * When unknown player made a move
+     */
 
-  @Test
-    public void whenPlayer_insert_wrong_input(){
-      Character unknownPlayer ='S';
-      try {
-        GRID_NO = 2;
-        ticTacGame.playerMove(GRID_NO, unknownPlayer);
-      } catch (IllegalMoveException e) {
-        Assert.assertEquals("When unknown player made a move", "Illegal move:Unknown player made a move", e.getMessage());
-        System.out.println(e.getMessage());
-      }
+    @Test
+    public void whenPlayer_insert_wrong_input() {
+        Character unknownPlayer = 'S';
+        try {
+            GRID_NO = 2;
+            ticTacGame.playerMove(GRID_NO, unknownPlayer);
+        } catch (IllegalMoveException e) {
+            Assert.assertEquals("When unknown player made a move", "Illegal move:Unknown player made a move", e.getMessage());
+            System.out.println(e.getMessage());
+        }
     }
 
-
+    /**
+     * If a row contains mark from the same player mark as win
+     **/
+    @Test
+    public void Win_on_SameRow() throws IllegalMoveException {
+        GRID_NO = 1;
+        ticTacGame.playerMove(GRID_NO, playerX);
+        GRID_NO = 4;
+        ticTacGame.playerMove(GRID_NO, playerO);
+        GRID_NO = 2;
+        ticTacGame.playerMove(GRID_NO, playerX);
+        GRID_NO = 7;
+        ticTacGame.playerMove(GRID_NO, playerO);
+        GRID_NO = 3;
+        ticTacGame.playerMove(GRID_NO, playerX);
+        String status = ticTacGame.getGameCondition();
+        Assert.assertEquals("If a row contains mark from the same player mark as win", "Player X Wins", status);
+    }
 }
