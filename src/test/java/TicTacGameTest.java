@@ -118,4 +118,11 @@ public class TicTacGameTest {
     ticTacGame.playerMove(9);
     assertEquals("Match Draw", ticTacGame.checkOutcome());
   }
+
+  @Test
+  public void testOutcomeWhenOngoing() throws PositionAlreadyOccupiedException {
+    TicTacGame ticTacGame = new TicTacGame();
+    ticTacGame.playerMove(1);
+    assertEquals("Match Ongoing", ticTacGame.checkOutcome());
+  }
 }

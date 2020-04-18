@@ -36,21 +36,29 @@ public class TicTacGame {
 
     public String checkOutcome2d() {
         for (int i = 0; i < 3; i++) {
-            if (grid2d[i][0] == grid2d[i][1] && grid2d[i][1] == grid2d[i][2]) {
+            if (grid2d[i][0] != null && grid2d[i][0] == grid2d[i][1] && grid2d[i][1] == grid2d[i][2]) {
                 return grid2d[i][0].getWinningOutcome();
             }
 
-            if (grid2d[0][i] == grid2d[1][i] && grid2d[1][i] == grid2d[2][i]) {
+            if (grid2d[0][i] != null && grid2d[0][i] == grid2d[1][i] && grid2d[1][i] == grid2d[2][i]) {
                 return grid2d[0][i].getWinningOutcome();
             }
         }
 
-        if (grid2d[0][0] == grid2d[1][1] && grid2d[1][1] == grid2d[2][2]) {
+        if (grid2d[0][0] != null && grid2d[0][0] == grid2d[1][1] && grid2d[1][1] == grid2d[2][2]) {
             return grid2d[0][0].getWinningOutcome();
         }
 
-        if (grid2d[0][2] == grid2d[1][1] && grid2d[1][1] == grid2d[2][0]) {
+        if (grid2d[0][2] != null && grid2d[0][2] == grid2d[1][1] && grid2d[1][1] == grid2d[2][0]) {
             return grid2d[0][2].getWinningOutcome();
+        }
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (grid2d[i][j] == null) {
+                    return "Match Ongoing";
+                }
+            }
         }
 
         return "Match Draw";
