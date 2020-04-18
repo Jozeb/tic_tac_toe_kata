@@ -2,7 +2,7 @@ import board.Board;
 import board.CheckFirstTurn;
 import board.Marker;
 import board.Position;
-import board.CheckTurn;
+import board.CheckTurnSequence;
 import exception.PositionAlreadyFilledException;
 import exception.WrongMoveException;
 
@@ -11,11 +11,11 @@ public class TicTacGame {
     Board board = new Board();
 
     CheckFirstTurn checkFirstTurn = new CheckFirstTurn();
-    CheckTurn checkTurn = new CheckTurn();
+    CheckTurnSequence checkTurnSequence = new CheckTurnSequence();
 
     public void play(Marker marker, Position position) throws WrongMoveException {
         checkFirstTurn.check(marker);
-        checkTurn.forThe(marker);
+        checkTurnSequence.forThe(marker);
 
         if (board.contains(position)) {
             throw new PositionAlreadyFilledException();

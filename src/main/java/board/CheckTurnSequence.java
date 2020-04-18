@@ -10,7 +10,7 @@ import java.util.Map;
 import static board.Marker.NOUGHT;
 import static board.Marker.CROSS;
 
-public class CheckTurn {
+public class CheckTurnSequence {
 
     Marker marker = null;
 
