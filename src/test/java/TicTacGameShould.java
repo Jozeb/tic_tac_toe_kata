@@ -129,4 +129,16 @@ public class TicTacGameShould {
                 .play(NOUGHT, at(3, 1));
         assert ticTacGame.outcome() == Outcome.NOUGHTS_WON;
     }
+
+    @Test
+    public void winWhenNoughtsLinedUpInSecondColumn() throws WrongMoveException {
+        TicTacGame ticTacGame = new TicTacGame()
+                .play(CROSS, at(1, 1))
+                .play(NOUGHT, at(1, 2))
+                .play(CROSS, at(1, 3))
+                .play(NOUGHT, at(2, 2))
+                .play(CROSS, at(2, 1))
+                .play(NOUGHT, at(3, 2));
+        assert ticTacGame.outcome() == Outcome.NOUGHTS_WON;
+    }
 }
