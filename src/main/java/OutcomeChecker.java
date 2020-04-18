@@ -1,7 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class OutcomeChecker {
+public class OutcomeChecker {
+
+    List<Checker> checkers;
+
+    OutcomeChecker(List<Checker> checkers) {
+        this.checkers = checkers;
+    }
+
     public GameOutcome check(List<Integer> playerMoves, List<Integer> computerMoves) {
 
         List<Integer> intermediatePlayerMoves = new ArrayList<>();
@@ -31,10 +38,14 @@ public abstract class OutcomeChecker {
     }
 
     private GameOutcome intermediateGameOutComeCheck(List<Integer> playerMoves, List<Integer> computerMoves) {
-        if (this.specificCheck(playerMoves)) return GameOutcome.PLAYER_WON;
-        else if (this.specificCheck(computerMoves)) return GameOutcome.PLAYER_LOST;
+
+        for (int i = 0; i < checkers.size(); i++) {
+            Checker checker = checkers.get(i);
+
+            if (checker.check(playerMoves)) return GameOutcome.PLAYER_WON;
+            else if (checker.check(computerMoves)) return GameOutcome.PLAYER_LOST;
+        }
+
         return GameOutcome.MATCH_DRAW;
     }
-
-    protected abstract boolean specificCheck(List<Integer> moves);
 }

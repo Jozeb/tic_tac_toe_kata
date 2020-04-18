@@ -23,8 +23,8 @@ public class TicTacGame {
         }
     }
 
-    public GameOutcome checkForRow() {
-        OutcomeChecker outcomeChecker = new RowOutcomeChecker();
+    public GameOutcome check(List<Checker> checkers) {
+        OutcomeChecker outcomeChecker = new OutcomeChecker(checkers);
         return outcomeChecker.check(playerMoves, computerMoves);
     }
 }

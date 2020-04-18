@@ -26,7 +26,8 @@ public class TicTacGameTest {
     List<Integer> playerMoves = Arrays.asList(1, 2, 3);
     List<Integer> computerMoves = Arrays.asList(4, 7, 9);
     TicTacGame ticTacGame = new TicTacGame(playerMoves, computerMoves);
-    GameOutcome gameOutcome = ticTacGame.checkForRow();
+    List<Checker> checkers = Arrays.asList(new RowChecker());
+    GameOutcome gameOutcome = ticTacGame.check(checkers);
     assertThat(gameOutcome).isEqualTo(GameOutcome.PLAYER_WON);
   }
 
@@ -35,7 +36,18 @@ public class TicTacGameTest {
     List<Integer> playerMoves = Arrays.asList(1, 5, 4);
     List<Integer> computerMoves = Arrays.asList(7, 8, 9);
     TicTacGame ticTacGame = new TicTacGame(playerMoves, computerMoves);
-    GameOutcome gameOutcome = ticTacGame.checkForRow();
+    List<Checker> checkers = Arrays.asList(new RowChecker());
+    GameOutcome gameOutcome = ticTacGame.check(checkers);
     assertThat(gameOutcome).isEqualTo(GameOutcome.PLAYER_LOST);
+  }
+
+  @Test
+  public void checkMatchDrawInRowTest() {
+    List<Integer> playerMoves = Arrays.asList(1, 5, 4, 3, 9);
+    List<Integer> computerMoves = Arrays.asList(7, 8, 2, 6);
+    TicTacGame ticTacGame = new TicTacGame(playerMoves, computerMoves);
+    List<Checker> checkers = Arrays.asList(new RowChecker());
+    GameOutcome gameOutcome = ticTacGame.check(checkers);
+    assertThat(gameOutcome).isEqualTo(GameOutcome.MATCH_DRAW);
   }
 }
