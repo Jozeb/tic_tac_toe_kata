@@ -79,7 +79,7 @@ public class TicTacGameShould {
                 .play(CROSS, at(1, 2))
                 .play(NOUGHT, at(2, 2))
                 .play(CROSS, at(1, 3));
-        assert ticTacGame.outcome() == Outcome.CROSS_WON;
+        assert ticTacGame.outcome() == Outcome.CROSSES_WON;
     }
 
     @Test

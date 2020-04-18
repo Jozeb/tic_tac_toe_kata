@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static board.Marker.NOUGHT;
-import static board.Outcome.CROSS_WON;
+import static board.Outcome.CROSSES_WON;
 import static board.Outcome.NOUGHTS_WON;
 import static board.Position.at;
 
@@ -48,6 +48,6 @@ public class TicTacGame {
                 }
             }
         }
-        return CROSS_WON;
+        return CROSSES_WON;
     }
 }
