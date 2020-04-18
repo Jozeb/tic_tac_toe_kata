@@ -5,6 +5,7 @@ import board.Position;
 import exception.PlayCrossException;
 import exception.PlayCrossFirstException;
 import exception.PositionAlreadyFilledException;
+import exception.WrongMoveException;
 
 public class TicTacGame {
 
@@ -14,7 +15,7 @@ public class TicTacGame {
 
     Marker lastMoveBy = null;
 
-    public void play(Marker marker, Position position) throws PositionAlreadyFilledException, PlayCrossFirstException, PlayCrossException {
+    public void play(Marker marker, Position position) throws WrongMoveException {
         firstMove.check(marker);
         if (marker == lastMoveBy) {
             throw new PlayCrossException();

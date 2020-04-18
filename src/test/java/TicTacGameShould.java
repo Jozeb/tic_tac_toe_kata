@@ -1,6 +1,7 @@
 import exception.PlayCrossException;
 import exception.PlayCrossFirstException;
 import exception.PositionAlreadyFilledException;
+import exception.WrongMoveException;
 import org.junit.Test;
 
 import static board.Marker.CROSS;
@@ -10,21 +11,21 @@ import static board.Position.at;
 public class TicTacGameShould {
 
     @Test
-    public void playCross() throws PositionAlreadyFilledException, PlayCrossFirstException, PlayCrossException {
+    public void playCross() throws WrongMoveException {
         TicTacGame ticTacGame = new TicTacGame();
         ticTacGame.play(CROSS, at(1, 1));
         assert ticTacGame.is(CROSS, at(1, 1));
     }
 
     @Test(expected = PositionAlreadyFilledException.class)
-    public void playNoughtAndCrossToSamePosition() throws PositionAlreadyFilledException, PlayCrossFirstException, PlayCrossException {
+    public void playNoughtAndCrossToSamePosition() throws WrongMoveException {
         TicTacGame ticTacGame = new TicTacGame();
         ticTacGame.play(CROSS, at(1, 1));
         ticTacGame.play(NOUGHT, at(1, 1));
     }
 
     @Test
-    public void playNought() throws PositionAlreadyFilledException, PlayCrossFirstException, PlayCrossException {
+    public void playNought() throws WrongMoveException {
         TicTacGame ticTacGame = new TicTacGame();
         ticTacGame.play(CROSS, at(1, 1));
         ticTacGame.play(NOUGHT, at(1, 2));
@@ -32,7 +33,7 @@ public class TicTacGameShould {
     }
 
     @Test
-    public void playCrossSecondTurn() throws PositionAlreadyFilledException, PlayCrossFirstException, PlayCrossException {
+    public void playCrossSecondTurn() throws WrongMoveException {
         TicTacGame ticTacGame = new TicTacGame();
         ticTacGame.play(CROSS, at(2, 2));
         ticTacGame.play(NOUGHT, at(1, 1));
@@ -41,13 +42,13 @@ public class TicTacGameShould {
     }
 
     @Test(expected = PlayCrossFirstException.class)
-    public void notAllowNoughtToPlayFirst() throws PositionAlreadyFilledException, PlayCrossFirstException, PlayCrossException {
+    public void notAllowNoughtToPlayFirst() throws WrongMoveException {
         TicTacGame ticTacGame = new TicTacGame();
         ticTacGame.play(NOUGHT, at(1, 1));
     }
 
     @Test(expected = PlayCrossException.class)
-    public void notAllowNoughtToPlayTwice() throws PositionAlreadyFilledException, PlayCrossFirstException, PlayCrossException {
+    public void notAllowNoughtToPlayTwice() throws WrongMoveException {
         TicTacGame ticTacGame = new TicTacGame();
         ticTacGame.play(CROSS, at(1, 1));
         ticTacGame.play(NOUGHT, at(1, 2));

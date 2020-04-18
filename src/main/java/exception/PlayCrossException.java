@@ -1,4 +1,4 @@
 package exception;
 
-public class PlayCrossException extends Throwable {
+public class PlayCrossException extends WrongMoveException {
 }

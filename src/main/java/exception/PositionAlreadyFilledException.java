@@ -1,4 +1,4 @@
 package exception;
 
-public class PositionAlreadyFilledException extends Throwable {
+public class PositionAlreadyFilledException extends WrongMoveException {
 }
