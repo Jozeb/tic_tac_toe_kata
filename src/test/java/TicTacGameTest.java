@@ -26,8 +26,7 @@ public class TicTacGameTest {
     List<Integer> playerMoves = Arrays.asList(1, 2, 3);
     List<Integer> computerMoves = Arrays.asList(4, 7, 9);
     TicTacGame ticTacGame = new TicTacGame(playerMoves, computerMoves);
-    String result = ticTacGame.checkForRow();
-    String expected = "Player Won";
-    assertThat(result).isEqualTo(expected);
+    GameOutcome gameOutcome = ticTacGame.checkForRow();
+    assertThat(gameOutcome).isEqualTo(GameOutcome.PLAYER_WON);
   }
 }

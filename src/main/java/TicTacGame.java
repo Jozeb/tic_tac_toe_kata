@@ -23,7 +23,7 @@ public class TicTacGame {
         }
     }
 
-    public String checkForRow() {
-        return "Player Won";
+    public GameOutcome checkForRow() {
+        return GameOutcome.PLAYER_WON;
     }
 }
