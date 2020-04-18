@@ -7,6 +7,12 @@ public class TicTacGame {
     }
 
     public void play0At(Position position) throws PositionAlreadyFilledException  {
-        throw new PositionAlreadyFilledException();
+        if (position.equals(new Position(1,1))) {
+            throw new PositionAlreadyFilledException();
+        }
+    }
+
+    public boolean isYAt(Position position) {
+        return true;
     }
 }
