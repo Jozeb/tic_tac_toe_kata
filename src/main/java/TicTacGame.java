@@ -1,12 +1,10 @@
+import board.Board;
 import board.Marker;
 import board.Position;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class TicTacGame {
 
-    Set<Position> board = new HashSet<>();
+    Board board = new Board();
 
     public void play(Marker cross, Position position) {
         board.add(position);
