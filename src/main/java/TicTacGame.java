@@ -14,7 +14,7 @@ public class TicTacGame {
     CheckTurnSequence checkTurnSequence = new CheckTurnSequence();
 
     public void play(Marker marker, Position position) throws WrongMoveException {
-        checkFirstTurn.check(marker);
+        checkFirstTurn.forThe(marker);
         checkTurnSequence.forThe(marker);
 
         if (board.contains(position)) {
