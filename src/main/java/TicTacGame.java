@@ -1,4 +1,5 @@
 import board.Board;
+import board.FirstCross;
 import board.Marker;
 import board.Position;
 
@@ -9,17 +10,17 @@ public class TicTacGame {
 
     Board board = new Board();
 
-    boolean crossPlayed = false;
+    FirstCross crossPlayed = new FirstCross();
 
     public void play(Marker marker, Position position) throws PositionAlreadyFilledException, PlayCrossFirstException {
-        if (NOUGHT == marker && !crossPlayed) {
+        if (NOUGHT == marker && !crossPlayed.played()) {
             throw new PlayCrossFirstException();
         }
 
         if (board.contains(position)) {
             throw new PositionAlreadyFilledException();
         }
-        crossPlayed = true;
+        crossPlayed.play();
         board.add(position, marker);
     }
 
