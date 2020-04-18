@@ -1,13 +1,12 @@
 import board.Board;
-import board.CheckFirstTurn;
-import board.CheckTurn;
+import turn.CheckFirstTurn;
+import turn.CheckTurn;
 import board.Marker;
 import board.Position;
-import board.CheckTurnSequence;
+import turn.CheckTurnSequence;
 import exception.PositionAlreadyFilledException;
 import exception.WrongMoveException;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

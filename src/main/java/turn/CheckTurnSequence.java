@@ -1,5 +1,6 @@
-package board;
+package turn;
 
+import board.Marker;
 import exception.PlayCrossException;
 import exception.PlayNoughtException;
 import exception.WrongMoveException;

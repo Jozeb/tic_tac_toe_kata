@@ -1,5 +1,6 @@
-package board;
+package turn;
 
+import board.Marker;
 import exception.PlayCrossFirstException;
 
 import static board.Marker.NOUGHT;
