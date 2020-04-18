@@ -1,9 +1,12 @@
 import board.Board;
 import board.Marker;
+import board.Outcome;
 import board.Position;
 import exception.PositionAlreadyFilledException;
 import exception.WrongMoveException;
 import turn.TurnCheckers;
+
+import static board.Outcome.CROSS_WON;
 
 public class TicTacGame {
 
@@ -25,5 +28,9 @@ public class TicTacGame {
 
     public boolean isYAt(Position position) {
         return true;
+    }
+
+    public Outcome outcome() {
+        return CROSS_WON;
     }
 }

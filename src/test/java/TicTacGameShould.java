@@ -1,3 +1,4 @@
+import board.Outcome;
 import exception.PlayCrossException;
 import exception.PlayCrossFirstException;
 import exception.PlayNoughtException;
@@ -61,5 +62,16 @@ public class TicTacGameShould {
         TicTacGame ticTacGame = new TicTacGame();
         ticTacGame.play(CROSS, at(1, 1));
         ticTacGame.play(CROSS, at(1, 2));
+    }
+
+    @Test
+    public void winWhenCrossLinedUpInFirstRow() throws WrongMoveException {
+        TicTacGame ticTacGame = new TicTacGame();
+        ticTacGame.play(CROSS, at(1, 1));
+        ticTacGame.play(NOUGHT, at(2, 1));
+        ticTacGame.play(CROSS, at(1, 2));
+        ticTacGame.play(NOUGHT, at(2, 2));
+        ticTacGame.play(CROSS, at(1, 3));
+        assert ticTacGame.outcome() == Outcome.CROSS_WON;
     }
 }
