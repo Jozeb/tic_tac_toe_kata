@@ -9,10 +9,24 @@ public class TicTacGameTest {
     TicTacGame ticTacGame = new TicTacGame();
   }
 
-  @Test
-  public void ensurePlayer1MovesFirst() {
+  @Test(expected = Exception.class)
+  public void throwExceptionIfPlayer2TriesToMoveFirst() throws Exception {
     TicTacGame ticTacGame = new TicTacGame();
-    assertThat(ticTacGame.firstMove)=1;
+    ticTacGame.player2Move(3);
+  }
+
+  @Test
+  public void ensurePlayer2MoviesSecond() throws Exception {
+    TicTacGame ticTacGame = new TicTacGame();
+    ticTacGame.player1Move(3);
+    ticTacGame.player2Move(3);
+  }
+
+  @Test(expected = Exception.class)
+  public void ensurePlayer1CannotMoveTwiceConsecutively() throws Exception {
+    TicTacGame ticTacGame = new TicTacGame();
+    ticTacGame.player1Move(3);
+    ticTacGame.player1Move(3);
   }
 
 }
