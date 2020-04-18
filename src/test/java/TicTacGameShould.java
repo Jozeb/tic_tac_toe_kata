@@ -21,88 +21,88 @@ public class TicTacGameShould {
 
     @Test
     public void playCross() throws WrongMoveException {
-        TicTacGame ticTacGame = new TicTacGame();
-        ticTacGame.play(CROSS, at(1, 1));
+        TicTacGame ticTacGame = new TicTacGame()
+                .play(CROSS, at(1, 1));
         assert ticTacGame.whatIs(at(1, 1)) == CROSS;
     }
 
     @Test(expected = PositionAlreadyFilledException.class)
     public void playNoughtAndCrossToSamePosition() throws WrongMoveException {
-        TicTacGame ticTacGame = new TicTacGame();
-        ticTacGame.play(CROSS, at(1, 1));
-        ticTacGame.play(NOUGHT, at(1, 1));
+        TicTacGame ticTacGame = new TicTacGame()
+                .play(CROSS, at(1, 1))
+                .play(NOUGHT, at(1, 1));
     }
 
     @Test
     public void playNought() throws WrongMoveException {
-        TicTacGame ticTacGame = new TicTacGame();
-        ticTacGame.play(CROSS, at(1, 1));
-        ticTacGame.play(NOUGHT, at(1, 2));
+        TicTacGame ticTacGame = new TicTacGame()
+                .play(CROSS, at(1, 1))
+                .play(NOUGHT, at(1, 2));
         assert ticTacGame.whatIs(at(1, 2)) == NOUGHT;
     }
 
     @Test
     public void playCrossSecondTurn() throws WrongMoveException {
-        TicTacGame ticTacGame = new TicTacGame();
-        ticTacGame.play(CROSS, at(2, 2));
-        ticTacGame.play(NOUGHT, at(1, 1));
-        ticTacGame.play(CROSS, at(1, 2));
+        TicTacGame ticTacGame = new TicTacGame()
+                .play(CROSS, at(2, 2))
+                .play(NOUGHT, at(1, 1))
+                .play(CROSS, at(1, 2));
         assert ticTacGame.whatIs(at(1, 2)) == CROSS;
     }
 
     @Test(expected = PlayCrossFirstException.class)
     public void notAllowNoughtToPlayFirst() throws WrongMoveException {
-        TicTacGame ticTacGame = new TicTacGame();
-        ticTacGame.play(NOUGHT, at(1, 1));
+        TicTacGame ticTacGame = new TicTacGame()
+                .play(NOUGHT, at(1, 1));
     }
 
     @Test(expected = PlayCrossException.class)
     public void notAllowNoughtToPlayTwice() throws WrongMoveException {
-        TicTacGame ticTacGame = new TicTacGame();
-        ticTacGame.play(CROSS, at(1, 1));
-        ticTacGame.play(NOUGHT, at(1, 2));
-        ticTacGame.play(NOUGHT, at(1, 3));
+        TicTacGame ticTacGame = new TicTacGame()
+                .play(CROSS, at(1, 1))
+                .play(NOUGHT, at(1, 2))
+                .play(NOUGHT, at(1, 3));
     }
 
     @Test(expected = PlayNoughtException.class)
     public void notAllowCrossToPlayTwice() throws WrongMoveException {
-        TicTacGame ticTacGame = new TicTacGame();
-        ticTacGame.play(CROSS, at(1, 1));
-        ticTacGame.play(CROSS, at(1, 2));
+        TicTacGame ticTacGame = new TicTacGame()
+                .play(CROSS, at(1, 1))
+                .play(CROSS, at(1, 2));
     }
 
     @Test
     public void winWhenCrossesLinedUpInFirstRow() throws WrongMoveException {
-        TicTacGame ticTacGame = new TicTacGame();
-        ticTacGame.play(CROSS, at(1, 1));
-        ticTacGame.play(NOUGHT, at(2, 1));
-        ticTacGame.play(CROSS, at(1, 2));
-        ticTacGame.play(NOUGHT, at(2, 2));
-        ticTacGame.play(CROSS, at(1, 3));
+        TicTacGame ticTacGame = new TicTacGame()
+                .play(CROSS, at(1, 1))
+                .play(NOUGHT, at(2, 1))
+                .play(CROSS, at(1, 2))
+                .play(NOUGHT, at(2, 2))
+                .play(CROSS, at(1, 3));
         assert ticTacGame.outcome() == Outcome.CROSS_WON;
     }
 
     @Test
     public void winWhenNoughtsLinedUpInFirstRow() throws WrongMoveException {
-        TicTacGame ticTacGame = new TicTacGame();
-        ticTacGame.play(CROSS, at(2, 1));
-        ticTacGame.play(NOUGHT, at(1, 1));
-        ticTacGame.play(CROSS, at(2, 2));
-        ticTacGame.play(NOUGHT, at(1, 2));
-        ticTacGame.play(CROSS, at(3, 3));
-        ticTacGame.play(NOUGHT, at(1, 3));
+        TicTacGame ticTacGame = new TicTacGame()
+                .play(CROSS, at(2, 1))
+                .play(NOUGHT, at(1, 1))
+                .play(CROSS, at(2, 2))
+                .play(NOUGHT, at(1, 2))
+                .play(CROSS, at(3, 3))
+                .play(NOUGHT, at(1, 3));
         assert ticTacGame.outcome() == Outcome.NOUGHTS_WON;
     }
 
     @Test
     public void winWhenNoughtsLinedUpInSecondRow() throws WrongMoveException {
-        TicTacGame ticTacGame = new TicTacGame();
-        ticTacGame.play(CROSS, at(1, 1));
-        ticTacGame.play(NOUGHT, at(2, 1));
-        ticTacGame.play(CROSS, at(1, 2));
-        ticTacGame.play(NOUGHT, at(2, 2));
-        ticTacGame.play(CROSS, at(3, 3));
-        ticTacGame.play(NOUGHT, at(2, 3));
+        TicTacGame ticTacGame = new TicTacGame()
+                .play(CROSS, at(1, 1))
+                .play(NOUGHT, at(2, 1))
+                .play(CROSS, at(1, 2))
+                .play(NOUGHT, at(2, 2))
+                .play(CROSS, at(3, 3))
+                .play(NOUGHT, at(2, 3));
         assert ticTacGame.outcome() == Outcome.NOUGHTS_WON;
     }
 }

@@ -16,13 +16,14 @@ public class TicTacGame {
     Board board = new Board();
     TurnCheckers turnCheckers = new TurnCheckers();
 
-    public void play(Marker marker, Position position) throws WrongMoveException {
+    public TicTacGame play(Marker marker, Position position) throws WrongMoveException {
         turnCheckers.runAllFor(marker);
 
         if (board.contains(position)) {
             throw new PositionAlreadyFilledException();
         }
         board.add(position, marker);
+        return this;
     }
 
     public Marker whatIs(Position position) {
