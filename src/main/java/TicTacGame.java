@@ -1,15 +1,9 @@
 import board.Board;
-import turn.CheckFirstTurn;
-import turn.CheckTurn;
 import board.Marker;
 import board.Position;
-import turn.CheckTurnSequence;
 import exception.PositionAlreadyFilledException;
 import exception.WrongMoveException;
 import turn.TurnCheckers;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class TicTacGame {
 
