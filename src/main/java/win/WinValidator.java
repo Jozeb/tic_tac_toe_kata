@@ -27,6 +27,7 @@ public class WinValidator {
     public Optional<Positions> isWin(Board board) {
         return ALL_WINNING_POSITIONS.stream()
                 .filter(board::markersAreAllTheSameAt)
+                .filter(positions -> board.markerIsNotEmpty(positions.any()))
                 .findFirst();
     }
 

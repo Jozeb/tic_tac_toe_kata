@@ -21,7 +21,10 @@ public class Board {
     }
 
     public boolean markersAreAllTheSameAt(Positions positions) {
-        return whatIsAt(positions.any()).isNotEmpty() &&
-                positions.stream().map(this::whatIsAt).distinct().count() == 1;
+        return positions.stream().map(this::whatIsAt).distinct().count() == 1;
+    }
+
+    public boolean markerIsNotEmpty(Position position) {
+        return whatIsAt(position).isNotEmpty();
     }
 }
