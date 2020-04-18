@@ -19,4 +19,8 @@ public class Board {
             return EMPTY;
         return marker;
     }
+
+    public boolean markersAreAllTheSameAt(Positions positions) {
+        return positions.stream().map(this::whatIsAt).distinct().count() == 1;
+    }
 }

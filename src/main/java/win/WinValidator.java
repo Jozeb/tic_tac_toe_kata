@@ -18,14 +18,11 @@ public class WinValidator {
 
     public Optional<Positions> isWin(Board board) {
         for (Positions positions : ALL_WINNING_POSITIONS) {
-            if (markersAreAllTheSameAt(board, positions)) {
+            if (board.markersAreAllTheSameAt(positions)) {
                 return Optional.of(positions);
             }
         }
         return Optional.empty();
     }
 
-    private boolean markersAreAllTheSameAt(Board board, Positions positions) {
-        return positions.stream().map(board::whatIsAt).distinct().count() == 1;
-    }
 }
