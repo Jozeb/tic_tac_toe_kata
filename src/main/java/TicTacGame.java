@@ -6,7 +6,7 @@ public class TicTacGame {
         if (grid[i] != null) {
             throw new PositionAlreadyOccupiedException();
         }
-        grid[i] = State.PLAYER;
+        move(State.PLAYER, i);
     }
 
     public State checkState(int i) {
@@ -14,6 +14,10 @@ public class TicTacGame {
     }
 
     public void computerMove(int i) {
-        grid[i] = State.COMPUTER;
+        move(State.COMPUTER, i);
+    }
+
+    private void move(State state, int i) {
+        grid[i] = state;
     }
 }
