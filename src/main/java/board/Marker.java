@@ -1,5 +1,5 @@
 package board;
 
 public enum Marker {
-    CROSS;
+    CROSS, NOUGHT;
 }

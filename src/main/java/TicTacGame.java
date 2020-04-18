@@ -6,19 +6,15 @@ public class TicTacGame {
 
     Board board = new Board();
 
-    public void play(Marker cross, Position position) {
+    public void play(Marker cross, Position position) throws PositionAlreadyFilledException {
+        if (board.contains(position)) {
+            throw new PositionAlreadyFilledException();
+        }
         board.add(position);
     }
 
     public boolean is(Marker cross, Position position) {
         return true;
-    }
-
-    public void play0At(Position position) throws PositionAlreadyFilledException  {
-        if (board.contains(position)) {
-            throw new PositionAlreadyFilledException();
-        }
-        board.add(position);
     }
 
     public boolean isYAt(Position position) {
