@@ -31,14 +31,14 @@ public class TicTacGame {
         return this;
     }
 
-    public Marker whatIs(Position position) {
-        return board.whatIsAt(position);
+    public void assertThat(Marker marker, Position position) {
+        assert marker == board.whatIsAt(position);
     }
 
     public Outcome outcome() {
         Optional<Positions> winningPositions = winValidator.isWin(board);
         if (winningPositions.isPresent()) {
-            if (whatIs(winningPositions.get().any()) == NOUGHT) {
+            if (board.whatIsAt(winningPositions.get().any()) == NOUGHT) {
                 return NOUGHTS_WON;
             } else {
                 return CROSSES_WON;
