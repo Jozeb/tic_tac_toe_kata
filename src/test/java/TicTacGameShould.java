@@ -31,7 +31,7 @@ public class TicTacGameShould {
         TicTacGame ticTacGame = new TicTacGame();
         ticTacGame.play(CROSS, at(1, 1));
         ticTacGame.play(NOUGHT, at(1, 2));
-        assert ticTacGame.isYAt(at(1, 2));
+        assert ticTacGame.is(NOUGHT, at(1, 2));
     }
 
     @Test

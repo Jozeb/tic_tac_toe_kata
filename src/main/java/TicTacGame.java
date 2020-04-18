@@ -26,10 +26,6 @@ public class TicTacGame {
         return true;
     }
 
-    public boolean isYAt(Position position) {
-        return true;
-    }
-
     public Outcome outcome() {
         return CROSS_WON;
     }
