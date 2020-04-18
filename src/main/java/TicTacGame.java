@@ -9,20 +9,17 @@ public class TicTacGame {
         this.playerMoves = playerMoves;
         this.computerMoves = computerMoves;
 
-        Set<Integer> checkForOverlapping = new HashSet<>();
+        throwExceptionIfOverlappingMoves(playerMoves, computerMoves);
+    }
 
-        for (int i = 0; i < playerMoves.size(); i++) {
-            if (checkForOverlapping.contains(playerMoves.get(i))) {
-                throw new OverlappingException();
-            }
-            checkForOverlapping.add(playerMoves.get(i));
-        }
+    private void throwExceptionIfOverlappingMoves(List<Integer> playerMoves, List<Integer> computerMoves) throws OverlappingException {
+        Set<Integer> uniqueMoves = new HashSet<>();
 
-        for (int i = 0; i < computerMoves.size(); i++) {
-            if (checkForOverlapping.contains(computerMoves.get(i))) {
-                throw new OverlappingException();
-            }
-            checkForOverlapping.add(computerMoves.get(i));
+        uniqueMoves.addAll(playerMoves);
+        uniqueMoves.addAll(computerMoves);
+
+        if (uniqueMoves.size() != playerMoves.size() + computerMoves.size()) {
+            throw new OverlappingException();
         }
     }
 }

@@ -8,7 +8,7 @@ import java.util.List;
 public class TicTacGameTest {
 
   @Test
-  public void tictacGameTest() throws OverlappingException {
+  public void ticTacGameTest() throws OverlappingException {
     List<Integer> playerMoves = Arrays.asList(1);
     List<Integer> computerMoves = Arrays.asList(3);
     TicTacGame ticTacGame = new TicTacGame(playerMoves, computerMoves);
