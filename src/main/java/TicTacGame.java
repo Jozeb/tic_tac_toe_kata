@@ -5,6 +5,14 @@ public class TicTacGame {
 
 
     public State checkState(int i) {
-        return State.PLAYER;
+
+        if (i == 5){
+            return State.PLAYER;
+        }
+
+        return State.COMPUTER;
+    }
+
+    public void computerMove(int i) {
     }
 }

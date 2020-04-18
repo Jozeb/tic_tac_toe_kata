@@ -1,3 +1,4 @@
 enum State {
-    PLAYER
+    PLAYER,
+    COMPUTER
 }
