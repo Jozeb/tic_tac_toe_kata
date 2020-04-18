@@ -31,9 +31,9 @@ public class TicTacGameShould {
     @Test
     public void playCrossSecondTurn() throws PositionAlreadyFilledException {
         TicTacGame ticTacGame = new TicTacGame();
-        ticTacGame.play(CROSS, at(1, 1));
-        ticTacGame.play0At(at(1, 2));
-        ticTacGame.play(CROSS, at(1, 3));
-        assert ticTacGame.is(CROSS, at(1, 3));
+        ticTacGame.play(CROSS, at(2, 2));
+        ticTacGame.play0At(at(1, 1));
+        ticTacGame.play(CROSS, at(1, 2));
+        assert ticTacGame.is(CROSS, at(1, 2));
     }
 }
