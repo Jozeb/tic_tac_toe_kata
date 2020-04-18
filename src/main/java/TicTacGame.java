@@ -1,5 +1,10 @@
+import board.Marker;
+import board.Position;
+
+import static board.Position.at;
+
 public class TicTacGame {
-    public void playXAt(Position position) {
+    public void play(Marker cross, Position position) {
     }
 
     public boolean isXAt(Position position) {
@@ -7,7 +12,7 @@ public class TicTacGame {
     }
 
     public void play0At(Position position) throws PositionAlreadyFilledException  {
-        if (position.equals(new Position(1,1))) {
+        if (position.equals(at(1,1))) {
             throw new PositionAlreadyFilledException();
         }
     }

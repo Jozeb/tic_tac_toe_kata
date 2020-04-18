@@ -1,10 +1,16 @@
-class Position {
+package board;
+
+public class Position {
     private final int row;
     private final int column;
 
     Position(int row, int column) {
         this.row = row;
         this.column = column;
+    }
+
+    public static Position at(int row, int column) {
+        return new Position(row, column);
     }
 
     public int getRow() {
