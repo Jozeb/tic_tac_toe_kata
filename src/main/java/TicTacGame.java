@@ -2,25 +2,20 @@ import board.Board;
 import board.FirstMove;
 import board.Marker;
 import board.Position;
-import board.Turn;
-import exception.PlayCrossException;
-import exception.PlayCrossFirstException;
-import exception.PlayNoughtException;
+import board.CheckTurn;
 import exception.PositionAlreadyFilledException;
 import exception.WrongMoveException;
-
-import static board.Marker.NOUGHT;
 
 public class TicTacGame {
 
     Board board = new Board();
 
     FirstMove firstMove = new FirstMove();
-    Turn turn = new Turn();
+    CheckTurn checkTurn = new CheckTurn();
 
     public void play(Marker marker, Position position) throws WrongMoveException {
         firstMove.check(marker);
-        turn.check(marker);
+        checkTurn.forThe(marker);
 
         if (board.contains(position)) {
             throw new PositionAlreadyFilledException();

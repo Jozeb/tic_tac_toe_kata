@@ -10,7 +10,7 @@ import java.util.Map;
 import static board.Marker.NOUGHT;
 import static board.Marker.CROSS;
 
-public class Turn {
+public class CheckTurn {
 
     Marker marker = null;
 
@@ -19,7 +19,7 @@ public class Turn {
         put(CROSS, new PlayNoughtException());
     }};
 
-    public void check(Marker marker) throws WrongMoveException {
+    public void forThe(Marker marker) throws WrongMoveException {
         if (lastMarkerAlso(marker)) {
             throw EXCEPTION_TO_THROW_FOR_MARKER.get(marker);
         }
