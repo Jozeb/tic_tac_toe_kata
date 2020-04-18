@@ -7,7 +7,7 @@ public class TicTacGame {
     public void play(Marker cross, Position position) {
     }
 
-    public boolean isXAt(Position position) {
+    public boolean is(Marker cross, Position position) {
         return true;
     }
 

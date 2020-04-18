@@ -1,5 +1,4 @@
 import board.Marker;
-import board.Position;
 import org.junit.Test;
 
 import static board.Marker.CROSS;
@@ -11,7 +10,7 @@ public class TicTacGameShould {
     public void moveXToPosition() {
         TicTacGame ticTacGame = new TicTacGame();
         ticTacGame.play(CROSS, at(1, 1));
-        assert ticTacGame.isXAt(at(1, 1));
+        assert ticTacGame.is(CROSS, at(1, 1));
     }
 
     @Test(expected = PositionAlreadyFilledException.class)
