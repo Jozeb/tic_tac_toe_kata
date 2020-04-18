@@ -17,12 +17,9 @@ public class WinValidator {
     );
 
     public Optional<Positions> isWin(Board board) {
-        for (Positions positions : ALL_WINNING_POSITIONS) {
-            if (board.markersAreAllTheSameAt(positions)) {
-                return Optional.of(positions);
-            }
-        }
-        return Optional.empty();
+        return ALL_WINNING_POSITIONS.stream()
+                .filter(board::markersAreAllTheSameAt)
+                .findFirst();
     }
 
 }
