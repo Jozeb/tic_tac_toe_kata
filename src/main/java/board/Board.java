@@ -1,14 +1,19 @@
 package board;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Board {
-    Set<Position> board = new HashSet<>();
-    public void add(Position position) {
-        board.add(position);
+    Map<Position, Marker> board = new HashMap<>();
+    public void add(Position position, Marker marker) {
+        board.put(position, marker);
     }
     public boolean contains(Position position) {
-        return board.contains(position);
+        return board.get(position) != null;
+    }
+
+    public boolean contains(Marker marker) {
+        return board.entrySet().stream().map(Map.Entry::getValue)
+                .anyMatch(m -> marker.equals(m));
     }
 }
