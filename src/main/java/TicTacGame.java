@@ -19,8 +19,10 @@ public class TicTacGame {
     final Board board = new Board();
     final TurnCheckers turnCheckers = new TurnCheckers();
 
-    static final List<Position> WINNING_POSITIONS = Arrays.asList(
-            at(1,1), at(1,2), at(1,3)
+    static final List<List<Position>> WINNING_POSITIONS = Arrays.asList(
+            Arrays.asList(at(1,1), at(1,2), at(1,3)),
+            Arrays.asList(at(2,1), at(2,2), at(2,3)),
+            Arrays.asList(at(3,1), at(3,2), at(3,3))
     );
 
     public TicTacGame play(Marker marker, Position position) throws WrongMoveException {
@@ -38,22 +40,12 @@ public class TicTacGame {
     }
 
     public Outcome outcome() {
-        final Marker marker = whatIs(WINNING_POSITIONS.get(0));
-        if (WINNING_POSITIONS.stream().allMatch(position -> whatIs(position) == marker)) {
-            if (marker == NOUGHT) {
-                return NOUGHTS_WON;
-            }
-        }
-        Marker markerSecondRow = whatIs(at(2, 1));
-        if (markerSecondRow == whatIs(at(2, 2)) && markerSecondRow == whatIs(at(2,3))) {
-            if (markerSecondRow == NOUGHT) {
-                return NOUGHTS_WON;
-            }
-        }
-        Marker markerThirdRow = whatIs(at(3, 1));
-        if (markerThirdRow == whatIs(at(3, 2)) && markerThirdRow == whatIs(at(3,3))) {
-            if (markerThirdRow == NOUGHT) {
-                return NOUGHTS_WON;
+        for (List<Position> wins: WINNING_POSITIONS) {
+            final Marker marker = whatIs(wins.get(0));
+            if (wins.stream().allMatch(position -> whatIs(position) == marker)) {
+                if (marker == NOUGHT) {
+                    return NOUGHTS_WON;
+                }
             }
         }
         return CROSS_WON;
