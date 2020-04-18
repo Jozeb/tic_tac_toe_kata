@@ -177,4 +177,11 @@ public class TicTacGameShould {
                 .play(NOUGHT, at(3, 1));
         assert ticTacGame.outcome() == Outcome.NOUGHTS_WON;
     }
+
+    @Test
+    public void beInProgressWhenOnlyOneMove() throws WrongMoveException {
+        TicTacGame ticTacGame = new TicTacGame()
+                .play(CROSS, at(1, 1));
+        assert ticTacGame.outcome() == Outcome.IN_PROGRESS;
+    }
 }
