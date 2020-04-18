@@ -1,4 +1,8 @@
 public class TicTacGame {
-    public void playX(int i) {
+    public void playXAt(int row, int column) {
+    }
+
+    public boolean isXAt(int row, int column) {
+        return true;
     }
 }
