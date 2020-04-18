@@ -6,24 +6,18 @@ import board.Position;
 import turn.CheckTurnSequence;
 import exception.PositionAlreadyFilledException;
 import exception.WrongMoveException;
+import turn.TurnCheckers;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class TicTacGame {
 
-    Board board;
-    List<CheckTurn> turnCheckers;
-
-    TicTacGame() {
-        board = new Board();
-        turnCheckers = Arrays.asList(new CheckFirstTurn(), new CheckTurnSequence());
-    }
+    Board board = new Board();
+    TurnCheckers turnCheckers = new TurnCheckers();
 
     public void play(Marker marker, Position position) throws WrongMoveException {
-        for (CheckTurn checkTurn: turnCheckers) {
-            checkTurn.forThe(marker);
-        }
+        turnCheckers.runAllFor(marker);
 
         if (board.contains(position)) {
             throw new PositionAlreadyFilledException();
