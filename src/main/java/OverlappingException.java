@@ -1,2 +1,2 @@
-public class OverlappingException extends Throwable {
+public class OverlappingException extends AssertionError {
 }
