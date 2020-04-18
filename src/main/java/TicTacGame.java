@@ -36,6 +36,12 @@ public class TicTacGame {
                 return NOUGHTS_WON;
             }
         }
+        marker = whatIs(at(2, 1));
+        if (marker == whatIs(at(2, 2)) && marker == whatIs(at(2,3))) {
+            if (marker == NOUGHT) {
+                return NOUGHTS_WON;
+            }
+        }
         return CROSS_WON;
     }
 }
