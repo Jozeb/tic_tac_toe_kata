@@ -28,6 +28,8 @@ public class TicTacGame {
             return grid[2].getWinningOutcome();
         else if(grid[1] == grid[5] && grid[5] == grid[9])
             return grid[1].getWinningOutcome();
+        else if(grid[3] == grid[5] && grid[5] == grid[7])
+            return grid[3].getWinningOutcome();
         return State.PLAYER.getWinningOutcome();
     }
 }
