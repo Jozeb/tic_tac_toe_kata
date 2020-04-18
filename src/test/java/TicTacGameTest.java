@@ -7,5 +7,6 @@ public class TicTacGameTest {
   @Test
   public void func() {
     TicTacGame ticTacGame = new TicTacGame();
+    ticTacGame.playerMove(5);
   }
 }
