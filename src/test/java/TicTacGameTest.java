@@ -21,7 +21,7 @@ public class TicTacGameTest {
     TicTacGame ticTacGame = new TicTacGame(playerMoves, computerMoves);
   }
 
-  @Test()
+  @Test
   public void checkPlayerWonInRowTest() {
     List<Integer> playerMoves = Arrays.asList(1, 2, 3);
     List<Integer> computerMoves = Arrays.asList(4, 7, 9);
@@ -30,7 +30,7 @@ public class TicTacGameTest {
     assertThat(gameOutcome).isEqualTo(GameOutcome.PLAYER_WON);
   }
 
-  @Test()
+  @Test
   public void checkPlayerLostInRowTest() {
     List<Integer> playerMoves = Arrays.asList(1, 5, 4);
     List<Integer> computerMoves = Arrays.asList(7, 8, 9);
