@@ -8,9 +8,16 @@ import org.junit.Test;
 
 import static board.Marker.CROSS;
 import static board.Marker.NOUGHT;
+import static board.Marker.EMPTY;
 import static board.Position.at;
 
 public class TicTacGameShould {
+
+    @Test
+    public void indicateEmptyPosition() {
+        TicTacGame ticTacGame = new TicTacGame();
+        assert ticTacGame.whatIs(at(1, 1)) == EMPTY;
+    }
 
     @Test
     public void playCross() throws WrongMoveException {

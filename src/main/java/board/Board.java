@@ -3,6 +3,8 @@ package board;
 import java.util.HashMap;
 import java.util.Map;
 
+import static board.Marker.EMPTY;
+
 public class Board {
     Map<Position, Marker> board = new HashMap<>();
     public void add(Position position, Marker marker) {
@@ -13,6 +15,8 @@ public class Board {
     }
     public Marker whatIsAt(Position position) {
         Marker marker = board.get(position);
+        if (marker == null)
+            return EMPTY;
         return marker;
     }
 }
