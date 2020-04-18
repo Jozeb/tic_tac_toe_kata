@@ -1,6 +1,7 @@
 package win;
 
 import board.Board;
+import board.ColumnPositions;
 import board.Positions;
 import board.RowPositions;
 
@@ -13,7 +14,8 @@ public class WinValidator {
     static final List<Positions> ALL_WINNING_POSITIONS = Arrays.asList(
             new RowPositions(1),
             new RowPositions(2),
-            new RowPositions(3)
+            new RowPositions(3),
+            new ColumnPositions(1)
     );
 
     public Optional<Positions> isWin(Board board) {
