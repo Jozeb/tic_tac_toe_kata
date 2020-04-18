@@ -25,9 +25,9 @@ public class TicTacGame {
 
     public String checkOutcome() {
         if(grid[2] == grid[5] && grid[5] == grid[8])
-            return "Computer Won";
+            return grid[2].getWinningOutcome();
         else if(grid[1] == grid[5] && grid[5] == grid[9])
-            return "Computer Won";
-        return  "Player Won";
+            return grid[1].getWinningOutcome();
+        return State.PLAYER.getWinningOutcome();
     }
 }

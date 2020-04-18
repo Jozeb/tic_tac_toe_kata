@@ -46,7 +46,7 @@ public class TicTacGameTest {
   }
 
   @Test
-  public void testOutcomeWhenPlayerWon() throws PositionAlreadyOccupiedException {
+  public void testOutcomeWhenPlayerWonOnFirstColumn() throws PositionAlreadyOccupiedException {
     TicTacGame ticTacGame = new TicTacGame();
     ticTacGame.playerMove(1);
     ticTacGame.computerMove(2);
@@ -78,5 +78,17 @@ public class TicTacGameTest {
     ticTacGame.playerMove(3);
     ticTacGame.computerMove(9);
     assertEquals("Computer Won", ticTacGame.checkOutcome());
+  }
+
+  @Test
+  public void testOutcomeWhenPlayerWonOnDiagonal() throws PositionAlreadyOccupiedException {
+    TicTacGame ticTacGame = new TicTacGame();
+    ticTacGame.playerMove(1);
+    ticTacGame.computerMove(2);
+    ticTacGame.playerMove(5);
+    ticTacGame.computerMove(4);
+    ticTacGame.playerMove(9);
+    ticTacGame.computerMove(3);
+    assertEquals("Player Won", ticTacGame.checkOutcome());
   }
 }
