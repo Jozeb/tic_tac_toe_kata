@@ -3,20 +3,22 @@ package board;
 import exception.PlayCrossException;
 import exception.PlayNoughtException;
 
-import static board.Marker.NOUGHT;
-
 public class Turn {
 
-    Marker lastMoveBy = null;
+    Marker marker = null;
 
     public void check(Marker marker) throws PlayCrossException, PlayNoughtException {
-        if (marker == lastMoveBy) {
-            if (marker == NOUGHT) {
+        if (lastMarkerAlso(marker)) {
+            if (marker.isNought()) {
                 throw new PlayCrossException();
             } else {
                 throw new PlayNoughtException();
             }
         }
-        lastMoveBy = marker;
+        this.marker = marker;
+    }
+
+    private boolean lastMarkerAlso(Marker marker) {
+        return marker == this.marker;
     }
 }
