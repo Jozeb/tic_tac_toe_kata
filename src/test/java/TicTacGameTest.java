@@ -103,4 +103,19 @@ public class TicTacGameTest {
     ticTacGame.computerMove(7);
     assertEquals("Computer Won", ticTacGame.checkOutcome());
   }
+
+  @Test
+  public void testOutcomeWhenDraw() throws PositionAlreadyOccupiedException {
+    TicTacGame ticTacGame = new TicTacGame();
+    ticTacGame.playerMove(1);
+    ticTacGame.computerMove(3);
+    ticTacGame.playerMove(2);
+    ticTacGame.computerMove(4);
+    ticTacGame.playerMove(6);
+    ticTacGame.computerMove(5);
+    ticTacGame.playerMove(7);
+    ticTacGame.computerMove(8);
+    ticTacGame.playerMove(9);
+    assertEquals("Match Draw", ticTacGame.checkOutcome());
+  }
 }

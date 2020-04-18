@@ -53,7 +53,7 @@ public class TicTacGame {
             return grid2d[0][2].getWinningOutcome();
         }
 
-        return null;
+        return "Match Draw";
     }
 
     public String checkOutcome() {
