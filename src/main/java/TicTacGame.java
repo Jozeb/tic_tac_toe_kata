@@ -22,8 +22,8 @@ public class TicTacGame {
         board.add(position, marker);
     }
 
-    public boolean is(Marker cross, Position position) {
-        return true;
+    public Marker whatIs(Position position) {
+        return board.whatIsAt(position);
     }
 
     public Outcome outcome() {

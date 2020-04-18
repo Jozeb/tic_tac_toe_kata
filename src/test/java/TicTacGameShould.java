@@ -16,7 +16,7 @@ public class TicTacGameShould {
     public void playCross() throws WrongMoveException {
         TicTacGame ticTacGame = new TicTacGame();
         ticTacGame.play(CROSS, at(1, 1));
-        assert ticTacGame.is(CROSS, at(1, 1));
+        assert ticTacGame.whatIs(at(1, 1)) == CROSS;
     }
 
     @Test(expected = PositionAlreadyFilledException.class)
@@ -31,7 +31,7 @@ public class TicTacGameShould {
         TicTacGame ticTacGame = new TicTacGame();
         ticTacGame.play(CROSS, at(1, 1));
         ticTacGame.play(NOUGHT, at(1, 2));
-        assert ticTacGame.is(NOUGHT, at(1, 2));
+        assert ticTacGame.whatIs(at(1, 2)) == NOUGHT;
     }
 
     @Test
@@ -40,7 +40,7 @@ public class TicTacGameShould {
         ticTacGame.play(CROSS, at(2, 2));
         ticTacGame.play(NOUGHT, at(1, 1));
         ticTacGame.play(CROSS, at(1, 2));
-        assert ticTacGame.is(CROSS, at(1, 2));
+        assert ticTacGame.whatIs(at(1, 2)) == CROSS;
     }
 
     @Test(expected = PlayCrossFirstException.class)

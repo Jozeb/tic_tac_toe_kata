@@ -11,4 +11,8 @@ public class Board {
     public boolean contains(Position position) {
         return board.get(position) != null;
     }
+    public Marker whatIsAt(Position position) {
+        Marker marker = board.get(position);
+        return marker;
+    }
 }
