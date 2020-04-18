@@ -19,7 +19,7 @@ public class TicTacGameTest {
     public void ensurePlayer2MoviesSecond() throws Exception {
         TicTacGame ticTacGame = new TicTacGame();
         ticTacGame.player1Move(3);
-        ticTacGame.player2Move(3);
+        ticTacGame.player2Move(5);
     }
 
     @Test(expected = Exception.class)
