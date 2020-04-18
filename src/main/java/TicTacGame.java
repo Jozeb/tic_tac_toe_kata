@@ -4,6 +4,10 @@ public class TicTacGame {
 
   boolean isPlayer1Turn = true;
 
+  int [][] board = new int[3][3];
+
+
+
   public void player2Move(int i) throws Exception {
 
     if (isFirstMove || isPlayer1Turn) {
@@ -20,4 +24,8 @@ public class TicTacGame {
     isFirstMove = false;
     isPlayer1Turn = false;
   }
+
+    public int[][] getBoard() {
+        return board;
+    }
 }
