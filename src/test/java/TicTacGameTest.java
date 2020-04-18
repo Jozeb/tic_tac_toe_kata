@@ -36,4 +36,13 @@ public class TicTacGameTest {
     assertEquals(State.PLAYER, ticTacGame.checkState(6));
   }
 
+  @Test(expected = PositionAlreadyOccupiedException.class)
+  public void testComputerMoveWhenPositionIsAlreadyOccupied() throws PositionAlreadyOccupiedException {
+    TicTacGame ticTacGame = new TicTacGame();
+    ticTacGame.playerMove(5);
+    ticTacGame.computerMove(7);
+    ticTacGame.playerMove(6);
+    ticTacGame.computerMove(7);
+  }
+
 }

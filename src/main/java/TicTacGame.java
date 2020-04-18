@@ -13,7 +13,10 @@ public class TicTacGame {
         return grid[i];
     }
 
-    public void computerMove(int i) {
+    public void computerMove(int i) throws PositionAlreadyOccupiedException{
+        if (grid[i] != null) {
+            throw new PositionAlreadyOccupiedException();
+        }
         move(State.COMPUTER, i);
     }
 
