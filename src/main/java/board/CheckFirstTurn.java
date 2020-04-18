@@ -4,7 +4,7 @@ import exception.PlayCrossFirstException;
 
 import static board.Marker.NOUGHT;
 
-public class FirstMove {
+public class CheckFirstTurn {
     boolean played = false;
     private static final Marker MARKER = NOUGHT;
 

@@ -1,5 +1,5 @@
 import board.Board;
-import board.FirstMove;
+import board.CheckFirstTurn;
 import board.Marker;
 import board.Position;
 import board.CheckTurn;
@@ -10,11 +10,11 @@ public class TicTacGame {
 
     Board board = new Board();
 
-    FirstMove firstMove = new FirstMove();
+    CheckFirstTurn checkFirstTurn = new CheckFirstTurn();
     CheckTurn checkTurn = new CheckTurn();
 
     public void play(Marker marker, Position position) throws WrongMoveException {
-        firstMove.check(marker);
+        checkFirstTurn.check(marker);
         checkTurn.forThe(marker);
 
         if (board.contains(position)) {
