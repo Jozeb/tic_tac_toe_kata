@@ -8,15 +8,16 @@ import java.util.List;
 public class TicTacGameTest {
 
   @Test
-  public void func() {
-    TicTacGame ticTacGame = new TicTacGame();
+  public void tictacGameTest() throws OverlappingException {
+    List<Integer> playerMoves = Arrays.asList(1);
+    List<Integer> computerMoves = Arrays.asList(3);
+    TicTacGame ticTacGame = new TicTacGame(playerMoves, computerMoves);
   }
 
-  @Test
-  public void checkForOverLappingFunc() {
-    List<Integer> playerMove = Arrays.asList(1,5);
-    List<Integer> computerMove = Arrays.asList(3,5);
-
-
+  @Test(expected = OverlappingException.class)
+  public void overlappingExceptionTest() throws OverlappingException {
+    List<Integer> playerMoves = Arrays.asList(5);
+    List<Integer> computerMoves = Arrays.asList(5);
+    TicTacGame ticTacGame = new TicTacGame(playerMoves, computerMoves);
   }
 }
