@@ -45,5 +45,12 @@ public class TicTacGameTest {
             assertThat(actualValue[i]).hasSize(3);
     }
 
+    @Test
+    public void translatePlayerTurnIntoGridPosition() throws Exception {
+      TicTacGame ticTacGame = new TicTacGame();
+       ticTacGame.player1Move(5);
+       int [][] currentBoard=ticTacGame.getBoard();
+       assertThat(currentBoard[1][1]).isEqualTo(1);
+    }
 
 }

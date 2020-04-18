@@ -22,6 +22,8 @@ public class TicTacGame {
       throw new Exception();
     }
     isFirstMove = false;
+    if(i==5)
+      board[1][1]=1;
     isPlayer1Turn = false;
   }
 
