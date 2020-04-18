@@ -22,4 +22,10 @@ public class TicTacGame {
         }
         grid[i] = state;
     }
+
+    public String checkOutcome() {
+        if( grid[2] == grid[5] && grid[5] == grid[8])
+            return "Computer Won";
+        return  "Player Won";
+    }
 }
