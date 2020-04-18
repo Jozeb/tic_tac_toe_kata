@@ -7,24 +7,33 @@ import static board.Position.at;
 public class TicTacGameShould {
 
     @Test
-    public void moveCrossToPosition() {
+    public void playCross() {
         TicTacGame ticTacGame = new TicTacGame();
         ticTacGame.play(CROSS, at(1, 1));
         assert ticTacGame.is(CROSS, at(1, 1));
     }
 
     @Test(expected = PositionAlreadyFilledException.class)
-    public void disallowMoveToSamePosition() throws PositionAlreadyFilledException {
+    public void playNoughtAndCrossToSamePosition() throws PositionAlreadyFilledException {
         TicTacGame ticTacGame = new TicTacGame();
         ticTacGame.play(CROSS, at(1, 1));
         ticTacGame.play0At(at(1, 1));
     }
 
     @Test
-    public void moveNoughtToPosition() throws PositionAlreadyFilledException {
+    public void playNought() throws PositionAlreadyFilledException {
         TicTacGame ticTacGame = new TicTacGame();
         ticTacGame.play(CROSS, at(1, 1));
         ticTacGame.play0At(at(1, 2));
         assert ticTacGame.isYAt(at(1, 2));
+    }
+
+    @Test
+    public void playCrossSecondTurn() throws PositionAlreadyFilledException {
+        TicTacGame ticTacGame = new TicTacGame();
+        ticTacGame.play(CROSS, at(1, 1));
+        ticTacGame.play0At(at(1, 2));
+        ticTacGame.play(CROSS, at(1, 3));
+        assert ticTacGame.is(CROSS, at(1, 3));
     }
 }
