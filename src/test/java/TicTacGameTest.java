@@ -53,4 +53,25 @@ public class TicTacGameTest {
        assertThat(currentBoard[1][1]).isEqualTo(1);
     }
 
+    @Test
+    public void translatePlayerTurnIntoGridPositionAgain () throws Exception {
+        TicTacGame ticTacGame = new TicTacGame();
+        ticTacGame.player1Move(3);
+        ticTacGame.player2Move(5);
+        int [][] currentBoard=ticTacGame.getBoard();
+        assertThat(currentBoard[0][2]).isEqualTo(1);
+        assertThat(currentBoard[1][1]).isEqualTo(2);
+    }
+
+    @Test(expected = Exception.class)
+    public void checkPositionIfNotAlreadyOccupied() throws Exception {
+
+        TicTacGame ticTacGame = new TicTacGame();
+        ticTacGame.player1Move(3);
+        ticTacGame.player2Move(3);
+    }
+
+
+
+
 }
