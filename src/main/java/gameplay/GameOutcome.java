@@ -2,14 +2,15 @@ package gameplay;
 
 import board.Board;
 import board.Marker;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 
+import board.validators.BoardValidator;
 import board.validators.DrawValidator;
-import position.Column;
-import position.Position;
-import position.Row;
-import win.WinValidator;
+import board.validators.WinValidator;
 
+import java.util.List;
 import java.util.Optional;
 
 import static gameplay.GameState.IN_PROGRESS;
@@ -17,21 +18,20 @@ import static gameplay.GameState.IN_PROGRESS;
 public class GameOutcome {
 
   GameState gameState = IN_PROGRESS;
-  WinValidator winValidator = new WinValidator();
-  DrawValidator drawValidator = new DrawValidator();
+  List<BoardValidator> boardValidators;
+
+  public GameOutcome() {
+    boardValidators = Arrays.asList(new WinValidator(), new DrawValidator());
+  }
 
   public void updateBasedOn(Board board) {
-    Optional<GameState> outcome = winValidator.isWin(board);
-    if (outcome.isPresent()) {
-      this.gameState = outcome.get();
-      return; // TODO: Refactor to remove return statement
-    }
+    for (BoardValidator validator : boardValidators) {
+      Optional<GameState> outcome = validator.getGameState(board);
 
-    outcome = drawValidator.isDrawn(board);
-
-    if (outcome.isPresent()) {
-      this.gameState = outcome.get();
-      return;
+      if (outcome.isPresent()) {
+        this.gameState = outcome.get();
+        return;
+      }
     }
   }
 

@@ -10,8 +10,8 @@ import position.Row;
 import java.util.Arrays;
 import java.util.Optional;
 
-public class DrawValidator {
-    public Optional<GameState> isDrawn(Board board) {
+public class DrawValidator implements BoardValidator {
+    public Optional<GameState> getGameState(Board board) {
         if (isBoardFull(board)) {
             return Optional.of(GameState.DRAWN);
         }
