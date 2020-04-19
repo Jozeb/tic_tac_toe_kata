@@ -2,7 +2,6 @@ import board.Board;
 import board.Marker;
 import board.Outcome;
 import board.Position;
-import exception.PositionAlreadyFilledException;
 import exception.WrongMoveException;
 import turn.TurnCheckers;
 import board.Positions;
@@ -23,11 +22,7 @@ public class TicTacGame {
 
     public TicTacGame play(Marker marker, Position position) throws WrongMoveException {
         turnCheckers.runAllFor(marker);
-
-        if (board.contains(position)) {
-            throw new PositionAlreadyFilledException();
-        }
-        board.add(position, marker);
+        board.move(marker, position);
         return this;
     }
 
