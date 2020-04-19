@@ -12,7 +12,7 @@ import static position.Position.at;
 public class TicTacGameShouldBeWonBy {
 
     @Test
-    public void winWhenCrossesLinedUpInFirstRow() throws WrongPlayException {
+    public void crossesWhenLinedUpInFirstRow() throws WrongPlayException {
         new TicTacGame()
                 .play(CROSS, at(Row.ONE, Column.ONE))
                 .play(NOUGHT, at(Row.TWO, Column.ONE))
@@ -23,7 +23,7 @@ public class TicTacGameShouldBeWonBy {
     }
 
     @Test
-    public void winWhenNoughtsLinedUpInFirstRow() throws WrongPlayException {
+    public void noughtsWhenLinedUpInFirstRow() throws WrongPlayException {
         new TicTacGame()
                 .play(CROSS, at(Row.TWO, Column.ONE))
                 .play(NOUGHT, at(Row.ONE, Column.ONE))
@@ -35,7 +35,7 @@ public class TicTacGameShouldBeWonBy {
     }
 
     @Test
-    public void winWhenNoughtsLinedUpInSecondRow() throws WrongPlayException {
+    public void noughtsWhenLinedUpInSecondRow() throws WrongPlayException {
         new TicTacGame()
                 .play(CROSS, at(Row.ONE, Column.ONE))
                 .play(NOUGHT, at(Row.TWO, Column.ONE))
@@ -47,7 +47,7 @@ public class TicTacGameShouldBeWonBy {
     }
 
     @Test
-    public void winWhenNoughtsLinedUpInThirdRow() throws WrongPlayException {
+    public void noughtsWhenLinedUpInThirdRow() throws WrongPlayException {
         new TicTacGame()
                 .play(CROSS, at(Row.ONE, Column.ONE))
                 .play(NOUGHT, at(Row.THREE, Column.ONE))
@@ -59,7 +59,7 @@ public class TicTacGameShouldBeWonBy {
     }
 
     @Test
-    public void winWhenNoughtsLinedUpInFirstColumn() throws WrongPlayException {
+    public void noughtsWhenLinedUpInFirstColumn() throws WrongPlayException {
         new TicTacGame()
                 .play(CROSS, at(Row.ONE, Column.TWO))
                 .play(NOUGHT, at(Row.ONE, Column.ONE))
@@ -71,7 +71,7 @@ public class TicTacGameShouldBeWonBy {
     }
 
     @Test
-    public void winWhenNoughtsLinedUpInSecondColumn() throws WrongPlayException {
+    public void noughtsWhenLinedUpInSecondColumn() throws WrongPlayException {
         new TicTacGame()
                 .play(CROSS, at(Row.ONE, Column.ONE))
                 .play(NOUGHT, at(Row.ONE, Column.TWO))
@@ -83,7 +83,7 @@ public class TicTacGameShouldBeWonBy {
     }
 
     @Test
-    public void winWhenNoughtsLinedUpInThirdColumn() throws WrongPlayException {
+    public void noughtsWhenLinedUpInThirdColumn() throws WrongPlayException {
         new TicTacGame()
                 .play(CROSS, at(Row.ONE, Column.ONE))
                 .play(NOUGHT, at(Row.ONE, Column.THREE))
@@ -95,7 +95,7 @@ public class TicTacGameShouldBeWonBy {
     }
 
     @Test
-    public void winWhenNoughtsLinedUpInFirstDiagonal() throws WrongPlayException {
+    public void NoughtsWhenLinedUpInFirstDiagonal() throws WrongPlayException {
         new TicTacGame()
                 .play(CROSS, at(Row.ONE, Column.TWO))
                 .play(NOUGHT, at(Row.ONE, Column.ONE))
@@ -107,7 +107,7 @@ public class TicTacGameShouldBeWonBy {
     }
 
     @Test
-    public void winWhenNoughtsLinedUpInSecondDiagonal() throws WrongPlayException {
+    public void noughtsWhenLinedUpInSecondDiagonal() throws WrongPlayException {
         new TicTacGame()
                 .play(CROSS, at(Row.ONE, Column.ONE))
                 .play(NOUGHT, at(Row.ONE, Column.THREE))
