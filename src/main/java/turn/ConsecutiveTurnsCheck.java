@@ -1,8 +1,8 @@
 package turn;
 
 import board.Marker;
-import exception.CannotPlayNoughtException;
-import exception.CannotPlayCrossException;
+import turn.exception.CannotPlayNoughtException;
+import turn.exception.CannotPlayCrossException;
 import exception.WrongPlayException;
 
 import java.util.HashMap;

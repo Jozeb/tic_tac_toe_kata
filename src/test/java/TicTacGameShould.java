@@ -1,7 +1,7 @@
-import exception.CannotPlayNoughtException;
-import exception.MustPlayCrossFirstException;
-import exception.CannotPlayCrossException;
-import exception.PositionAlreadyFilledException;
+import turn.exception.CannotPlayNoughtException;
+import turn.exception.MustPlayCrossFirstException;
+import turn.exception.CannotPlayCrossException;
+import board.exception.PositionAlreadyFilledException;
 import exception.WrongPlayException;
 import org.junit.Test;
 

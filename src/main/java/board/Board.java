@@ -1,6 +1,6 @@
 package board;
 
-import exception.PositionAlreadyFilledException;
+import board.exception.PositionAlreadyFilledException;
 import position.Position;
 import position.Positions;
 

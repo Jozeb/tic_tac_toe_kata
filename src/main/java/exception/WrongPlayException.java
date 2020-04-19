@@ -1,4 +1,4 @@
 package exception;
 
-public class WrongPlayException extends Throwable {
+public abstract class WrongPlayException extends Throwable {
 }

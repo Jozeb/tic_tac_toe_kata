@@ -1,7 +1,7 @@
 package turn;
 
 import board.Marker;
-import exception.MustPlayCrossFirstException;
+import turn.exception.MustPlayCrossFirstException;
 
 import static board.Marker.NOUGHT;
 
