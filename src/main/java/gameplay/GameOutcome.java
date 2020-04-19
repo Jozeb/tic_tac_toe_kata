@@ -3,6 +3,8 @@ package gameplay;
 import board.Board;
 import board.Marker;
 import java.util.Arrays;
+
+import board.validators.DrawValidator;
 import position.Column;
 import position.Position;
 import position.Row;
@@ -16,28 +18,21 @@ public class GameOutcome {
 
   GameState gameState = IN_PROGRESS;
   WinValidator winValidator = new WinValidator();
+  DrawValidator drawValidator = new DrawValidator();
 
   public void updateBasedOn(Board board) {
     Optional<GameState> outcome = winValidator.isWin(board);
     if (outcome.isPresent()) {
       this.gameState = outcome.get();
+      return; // TODO: Refactor to remove return statement
     }
 
-    if (isBoardFull(board)) {
-      this.gameState = GameState.DRAWN;
+    outcome = drawValidator.isDrawn(board);
+
+    if (outcome.isPresent()) {
+      this.gameState = outcome.get();
+      return;
     }
-  }
-
-  private boolean isBoardFull(Board board) {
-    long filledBoxesCount = Arrays.stream(Row.values())
-        .map(row -> Arrays.stream(Column.values())
-            .map(column -> Position.at(row, column))
-            .map(board::whatIsAt)
-            .filter(Marker::isNotEmpty)
-            .count()).mapToInt(Math::toIntExact)
-        .sum();
-
-    return filledBoxesCount == 9;
   }
 
   public GameState getGameState() {
