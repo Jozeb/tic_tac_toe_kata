@@ -11,10 +11,17 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+import static gameplay.GameState.DRAWN;
+
 public class DrawValidator implements BoardValidator {
     @Override
-    public boolean getGameState(Board board) {
+    public boolean isGameFinished(Board board) {
         return isBoardFull(board);
+    }
+
+    @Override
+    public GameState getGameState() {
+        return DRAWN;
     }
 
     private boolean isBoardFull(Board board) {

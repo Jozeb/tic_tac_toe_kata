@@ -4,36 +4,27 @@ import board.Board;
 
 import board.validators.*;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static gameplay.GameState.IN_PROGRESS;
 
 public class GameOutcome {
 
   GameState gameState = IN_PROGRESS;
+  List<BoardValidator> boardValidators;
 
   public GameOutcome() {
+    boardValidators = Arrays.asList(new NoughtWinValidator(), new CrossWinValidator(), new DrawValidator());
   }
 
   public void updateBasedOn(Board board) {
 
-    NoughtWinValidator noughtWinValidator = new NoughtWinValidator();
-    boolean hasNoughtWon = noughtWinValidator.getGameState(board);
-    if (hasNoughtWon) {
-      this.gameState = GameState.WON_BY_NOUGHTS;
-      return;
-    }
-
-    CrossWinValidator crossWinValidator = new CrossWinValidator();
-    boolean hasCrossWon = crossWinValidator.getGameState(board);
-    if (hasCrossWon) {
-      this.gameState = GameState.WON_BY_CROSSES;
-      return;
-    }
-
-    DrawValidator drawValidator = new DrawValidator();
-    boolean isGameDrawn = drawValidator.getGameState(board);
-    if (isGameDrawn) {
-      this.gameState = GameState.DRAWN;
-      return;
+    for (BoardValidator validator : boardValidators) {
+      if (validator.isGameFinished(board)) {
+        this.gameState = validator.getGameState();
+        return;
+      }
     }
   }
 
