@@ -1,5 +1,6 @@
 import board.Board;
 import board.Marker;
+import exception.GameAlreadyEndedException;
 import gameplay.GameState;
 import position.Position;
 import exception.WrongPlayException;
@@ -13,6 +14,10 @@ public class TicTacGame {
     final GameOutcome gameOutcome = new GameOutcome();
 
     public TicTacGame play(Marker marker, Position position) throws WrongPlayException {
+        if (gameOutcome.getGameState() != GameState.IN_PROGRESS) {
+            throw new GameAlreadyEndedException();
+        }
+
         playerTurnChecks.runFor(marker);
         board.move(marker, position);
         gameOutcome.updateBasedOn(board);

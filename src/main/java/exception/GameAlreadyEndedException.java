@@ -1,4 +1,4 @@
 package exception;
 
-public class GameAlreadyEndedException extends Throwable {
+public class GameAlreadyEndedException extends WrongPlayException {
 }
