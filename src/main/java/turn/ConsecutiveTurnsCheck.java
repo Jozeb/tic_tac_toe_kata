@@ -11,23 +11,23 @@ import java.util.Map;
 import static board.Marker.NOUGHT;
 import static board.Marker.CROSS;
 
-public class CheckTurnSequence implements CheckTurn {
+public class ConsecutiveTurnsCheck implements PlayerTurnCheck {
 
-    Marker marker = null;
+    Marker lastMarker = null;
 
-    Map<Marker, WrongMoveException> EXCEPTION_TO_THROW_FOR_MARKER = new HashMap() {{
+    final static Map<Marker, WrongMoveException> EXCEPTION_TO_THROW = new HashMap() {{
         put(NOUGHT, new PlayCrossException());
         put(CROSS, new PlayNoughtException());
     }};
 
     public void forThe(Marker marker) throws WrongMoveException {
         if (lastMarkerAlso(marker)) {
-            throw EXCEPTION_TO_THROW_FOR_MARKER.get(marker);
+            throw EXCEPTION_TO_THROW.get(marker);
         }
-        this.marker = marker;
+        this.lastMarker = marker;
     }
 
     private boolean lastMarkerAlso(Marker marker) {
-        return marker == this.marker;
+        return marker == this.lastMarker;
     }
 }

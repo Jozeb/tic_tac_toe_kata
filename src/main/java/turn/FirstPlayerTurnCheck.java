@@ -5,7 +5,7 @@ import exception.PlayCrossFirstException;
 
 import static board.Marker.NOUGHT;
 
-public class CheckFirstTurn implements CheckTurn {
+public class FirstPlayerTurnCheck implements PlayerTurnCheck {
 
     boolean played = false;
     private static final Marker MARKER = NOUGHT;
