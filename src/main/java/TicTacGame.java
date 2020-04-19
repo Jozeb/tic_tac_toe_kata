@@ -24,6 +24,6 @@ public class TicTacGame {
     }
 
     public void assertThat(Outcome outcome) {
-        assert gameOutcome.getOutcome() == outcome;
+        assert outcome == gameOutcome.getOutcome();
     }
 }
