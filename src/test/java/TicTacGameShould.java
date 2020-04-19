@@ -1,17 +1,13 @@
-import position.Column;
-import position.Row;
-import turn.exception.CannotPlayNoughtException;
-import turn.exception.MustPlayCrossFirstException;
-import turn.exception.CannotPlayCrossException;
-import board.exception.PositionAlreadyFilledException;
 import exception.WrongPlayException;
 import org.junit.Test;
+import position.Column;
+import position.Row;
 
 import static board.Marker.CROSS;
 import static board.Marker.EMPTY;
 import static board.Marker.NOUGHT;
-import static gameplay.GameState.WON_BY_CROSSES;
 import static gameplay.GameState.IN_PROGRESS;
+import static gameplay.GameState.WON_BY_CROSSES;
 import static gameplay.GameState.WON_BY_NOUGHTS;
 import static position.Position.at;
 
@@ -30,13 +26,6 @@ public class TicTacGameShould {
                 .assertThat(CROSS, at(Row.ONE, Column.ONE));
     }
 
-    @Test(expected = PositionAlreadyFilledException.class)
-    public void playNoughtAndCrossToSamePosition() throws WrongPlayException {
-        new TicTacGame()
-                .play(CROSS, at(Row.ONE, Column.ONE))
-                .play(NOUGHT, at(Row.ONE, Column.ONE));
-    }
-
     @Test
     public void playNought() throws WrongPlayException {
         new TicTacGame()
@@ -52,27 +41,6 @@ public class TicTacGameShould {
                 .play(NOUGHT, at(Row.ONE, Column.ONE))
                 .play(CROSS, at(Row.ONE, Column.TWO))
                 .assertThat(CROSS, at(Row.ONE, Column.TWO));
-    }
-
-    @Test(expected = MustPlayCrossFirstException.class)
-    public void notAllowNoughtToPlayFirst() throws WrongPlayException {
-        new TicTacGame()
-                .play(NOUGHT, at(Row.ONE, Column.ONE));
-    }
-
-    @Test(expected = CannotPlayNoughtException.class)
-    public void notAllowNoughtToPlayTwice() throws WrongPlayException {
-        new TicTacGame()
-                .play(CROSS, at(Row.ONE, Column.ONE))
-                .play(NOUGHT, at(Row.ONE, Column.TWO))
-                .play(NOUGHT, at(Row.ONE, Column.THREE));
-    }
-
-    @Test(expected = CannotPlayCrossException.class)
-    public void notAllowCrossToPlayTwice() throws WrongPlayException {
-        new TicTacGame()
-                .play(CROSS, at(Row.ONE, Column.ONE))
-                .play(CROSS, at(Row.ONE, Column.TWO));
     }
 
     @Test
