@@ -188,16 +188,4 @@ public class TicTacGameShould {
                 .play(CROSS, at(Row.ONE, Column.ONE))
                 .assertThat(IN_PROGRESS);
     }
-
-    @Test(expected = AssertionError.class)
-    public void notAllowOutOfBoundMovesZeroOrLess() throws WrongPlayException {
-        new TicTacGame()
-                .play(CROSS, at(0, 0));
-    }
-
-    @Test(expected = AssertionError.class)
-    public void notAllowOutOfBoundMovesFourOrMore() throws WrongPlayException {
-        new TicTacGame()
-                .play(CROSS, at(4, 4));
-    }
 }

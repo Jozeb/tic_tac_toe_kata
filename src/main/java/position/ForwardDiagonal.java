@@ -5,8 +5,8 @@ import static position.Position.at;
 public class ForwardDiagonal extends Positions {
     public ForwardDiagonal() {
         super(
-                at(1,3),
-                at(2,2),
-                at(3,1));
+                at(Row.ONE, Column.THREE),
+                at(Row.TWO, Column.TWO),
+                at(Row.THREE, Column.ONE));
     }
 }
