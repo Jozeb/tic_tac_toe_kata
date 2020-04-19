@@ -3,6 +3,7 @@ package gameplay;
 import board.Board;
 import board.Marker;
 
+import board.validators.NoughtWinValidator;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -25,6 +26,14 @@ public class GameOutcome {
   }
 
   public void updateBasedOn(Board board) {
+
+    NoughtWinValidator noughtWinValidator = new NoughtWinValidator();
+    boolean hasNoughtWon = noughtWinValidator.getGameState(board);
+    if (hasNoughtWon) {
+      this.gameState = GameState.WON_BY_NOUGHTS;
+      return;
+    }
+
     Optional<GameState> gameState = boardValidators.stream()
             .map(validator -> validator.getGameState(board))
             .filter(Optional::isPresent)

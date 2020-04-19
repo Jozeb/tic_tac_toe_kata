@@ -33,4 +33,10 @@ public class Board {
     public boolean markersAreAllTheSameAt(Positions positions) {
         return positions.stream().map(this::whatIsAt).distinct().count() == 1;
     }
+
+    public boolean markersAreAllTheSameAt(Positions positions, Marker marker) {
+        return positions.stream()
+            .filter(position -> this.whatIsAt(position) == marker)
+            .count() == 3;
+    }
 }
