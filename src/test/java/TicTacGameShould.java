@@ -57,15 +57,15 @@ public class TicTacGameShould {
     @Test(expected = MustPlayCrossFirstException.class)
     public void notAllowNoughtToPlayFirst() throws WrongPlayException {
         new TicTacGame()
-                .play(NOUGHT, at(1, 1));
+                .play(NOUGHT, at(Row.ONE, Column.ONE));
     }
 
     @Test(expected = CannotPlayNoughtException.class)
     public void notAllowNoughtToPlayTwice() throws WrongPlayException {
         new TicTacGame()
-                .play(CROSS, at(1, 1))
-                .play(NOUGHT, at(1, 2))
-                .play(NOUGHT, at(1, 3));
+                .play(CROSS, at(Row.ONE, Column.ONE))
+                .play(NOUGHT, at(Row.ONE, Column.TWO))
+                .play(NOUGHT, at(Row.ONE, Column.THREE));
     }
 
     @Test(expected = CannotPlayCrossException.class)

@@ -1,7 +1,7 @@
 package position;
 
 public enum Column {
-    ONE(1), TWO(2);
+    ONE(1), TWO(2), THREE(3);
 
     int value;
 
