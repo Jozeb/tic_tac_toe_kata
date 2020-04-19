@@ -188,8 +188,14 @@ public class TicTacGameShould {
     }
 
     @Test(expected = AssertionError.class)
-    public void notAllowOutOfBoundMoves() throws WrongMoveException {
+    public void notAllowOutOfBoundMovesZeroOrLess() throws WrongMoveException {
         new TicTacGame()
                 .play(CROSS, at(0, 0));
+    }
+
+    @Test(expected = AssertionError.class)
+    public void notAllowOutOfBoundMovesFourOrMore() throws WrongMoveException {
+        new TicTacGame()
+                .play(CROSS, at(4, 4));
     }
 }
