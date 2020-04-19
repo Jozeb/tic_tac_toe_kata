@@ -3,13 +3,10 @@ package gameplay;
 import board.Board;
 import board.Marker;
 
-import board.validators.NoughtWinValidator;
+import board.validators.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import board.validators.BoardValidator;
-import board.validators.DrawValidator;
-import board.validators.WinValidator;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,7 +19,7 @@ public class GameOutcome {
   List<BoardValidator> boardValidators;
 
   public GameOutcome() {
-    boardValidators = Arrays.asList(new WinValidator(), new DrawValidator());
+    boardValidators = Arrays.asList(new DrawValidator());
   }
 
   public void updateBasedOn(Board board) {
@@ -31,6 +28,13 @@ public class GameOutcome {
     boolean hasNoughtWon = noughtWinValidator.getGameState(board);
     if (hasNoughtWon) {
       this.gameState = GameState.WON_BY_NOUGHTS;
+      return;
+    }
+
+    CrossWinValidator crossWinValidator = new CrossWinValidator();
+    boolean hasCrossWon = crossWinValidator.getGameState(board);
+    if (hasCrossWon) {
+      this.gameState = GameState.WON_BY_CROSSES;
       return;
     }
 

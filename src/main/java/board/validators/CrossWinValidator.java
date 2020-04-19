@@ -1,22 +1,24 @@
 package board.validators;
 
-import static board.Marker.NOUGHT;
-import static gameplay.GameState.WON_BY_NOUGHTS;
-
 import board.Board;
 import board.Marker;
 import gameplay.GameState;
-import java.util.HashMap;
-import java.util.Map;
 import win.AllWinningPositions;
 
-public class NoughtWinValidator  {
+import java.util.HashMap;
+import java.util.Map;
+
+import static board.Marker.CROSS;
+import static board.Marker.NOUGHT;
+import static gameplay.GameState.WON_BY_NOUGHTS;
+
+public class CrossWinValidator {
 
   final AllWinningPositions allWinningPositions = new AllWinningPositions();
 
   public boolean getGameState(Board board) {
     return allWinningPositions.stream()
-        .anyMatch(positions -> board.markersAreAllTheSameAt(positions, NOUGHT));
+        .anyMatch(positions -> board.markersAreAllTheSameAt(positions, CROSS));
   }
 }
 
