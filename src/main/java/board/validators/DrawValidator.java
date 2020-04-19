@@ -9,6 +9,7 @@ import position.Row;
 
 import java.util.Arrays;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 public class DrawValidator implements BoardValidator {
     public Optional<GameState> getGameState(Board board) {
@@ -20,14 +21,10 @@ public class DrawValidator implements BoardValidator {
     }
 
     private boolean isBoardFull(Board board) {
-        long filledBoxesCount = Arrays.stream(Row.values())
-                .map(row -> Arrays.stream(Column.values())
-                        .map(column -> Position.at(row, column))
-                        .map(board::whatIsAt)
-                        .filter(Marker::isNotEmpty)
-                        .count()).mapToInt(Math::toIntExact)
-                .sum();
+        Stream<Position> positions = Arrays.stream(Row.values())
+                .flatMap(row -> Arrays.stream(Column.values()).map(column -> Position.at(row, column)));
 
-        return filledBoxesCount == 9;
+        return positions.map(board::whatIsAt)
+                .noneMatch(Marker::isEmpty);
     }
 }

@@ -6,4 +6,8 @@ public enum Marker {
     public boolean isNotEmpty() {
         return EMPTY != this;
     }
+
+    public boolean isEmpty() {
+        return EMPTY == this;
+    }
 }
