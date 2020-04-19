@@ -1,14 +1,11 @@
 package position;
 
-import java.util.stream.IntStream;
+public enum Column {
+    ONE(1);
 
-import static position.Position.at;
+    int value;
 
-public class Column extends Positions {
-    public Column(int column) {
-        super(IntStream
-                .of(1, 2, 3)
-                .mapToObj(row -> at(row, column))
-                .toArray(Position[]::new));
+    Column(int value) {
+        this.value = value;
     }
 }

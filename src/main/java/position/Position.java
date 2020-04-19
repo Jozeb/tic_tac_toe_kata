@@ -17,6 +17,10 @@ public class Position {
         return new Position(row, column);
     }
 
+    public static Position at(Row row, Column column) {
+        return new Position(row.value, column.value);
+    }
+
     private static void assertBoundsFor(int value) {
         assert value >= LOWER_BOUND && value <= UPPER_BOUND;
     }

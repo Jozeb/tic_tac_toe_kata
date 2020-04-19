@@ -1,3 +1,5 @@
+import position.Column;
+import position.Row;
 import turn.exception.CannotPlayNoughtException;
 import turn.exception.MustPlayCrossFirstException;
 import turn.exception.CannotPlayCrossException;
@@ -18,7 +20,7 @@ public class TicTacGameShould {
     @Test
     public void indicateEmptyPosition() {
         new TicTacGame()
-                .assertThat(EMPTY, at(1, 1));
+                .assertThat(EMPTY, at(Row.ONE, Column.ONE));
     }
 
     @Test
