@@ -1,6 +1,8 @@
 package win;
 
+import board.BackwardDiagonal;
 import board.ColumnPositions;
+import board.ForwardDiagonal;
 import board.Positions;
 import board.RowPositions;
 
@@ -19,8 +21,8 @@ public class AllWinningPositions {
             new ColumnPositions(1),
             new ColumnPositions(2),
             new ColumnPositions(3),
-            new Positions(at(1,1), at(2,2), at(3,3)),
-            new Positions(at(1,3), at(2,2), at(3,1))
+            new BackwardDiagonal(),
+            new ForwardDiagonal()
     );
 
     public Stream<Positions> stream() {
