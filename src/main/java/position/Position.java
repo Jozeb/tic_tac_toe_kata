@@ -1,6 +1,8 @@
 package position;
 
 public class Position {
+    public static final int LOWER_BOUND = 1;
+    public static final int UPPER_BOUND = 3;
     private final int row;
     private final int column;
 
@@ -10,8 +12,8 @@ public class Position {
     }
 
     public static Position at(int row, int column) {
-        assert row > 0 && row <= 3;
-        assert column > 0 && row <= 3;
+        assert row >= LOWER_BOUND && row <= UPPER_BOUND;
+        assert column >= LOWER_BOUND && row <= UPPER_BOUND;
         return new Position(row, column);
     }
 
