@@ -18,7 +18,7 @@ public class Positions {
         return positions.stream();
     }
 
-    public Position any() {
+    public Position anyOne() {
         return positions.get(0);
     }
 }

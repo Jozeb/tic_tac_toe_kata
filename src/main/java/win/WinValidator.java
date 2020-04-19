@@ -24,7 +24,7 @@ public class WinValidator {
     public Optional<Outcome> isWin(Board board) {
         return allWinningPositions.stream()
                 .filter(board::markersAreAllTheSameAt)
-                .map(Positions::any)
+                .map(Positions::anyOne)
                 .map(board::whatIsAt)
                 .filter(Marker::isNotEmpty)
                 .map(OUTCOME_FOR::get)
