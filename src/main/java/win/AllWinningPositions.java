@@ -10,8 +10,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static board.Position.at;
-
 public class AllWinningPositions {
 
     static final List<Positions> ALL_WINNING_POSITIONS = Arrays.asList(
@@ -28,5 +26,4 @@ public class AllWinningPositions {
     public Stream<Positions> stream() {
         return ALL_WINNING_POSITIONS.stream();
     }
-
 }
