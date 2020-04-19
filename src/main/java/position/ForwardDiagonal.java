@@ -1,6 +1,6 @@
-package board;
+package position;
 
-import static board.Position.at;
+import static position.Position.at;
 
 public class ForwardDiagonal extends Positions {
     public ForwardDiagonal() {

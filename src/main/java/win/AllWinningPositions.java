@@ -1,10 +1,10 @@
 package win;
 
-import board.BackwardDiagonal;
-import board.ColumnPositions;
-import board.ForwardDiagonal;
-import board.Positions;
-import board.RowPositions;
+import position.BackwardDiagonal;
+import position.Column;
+import position.ForwardDiagonal;
+import position.Positions;
+import position.Row;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,12 +13,12 @@ import java.util.stream.Stream;
 public class AllWinningPositions {
 
     static final List<Positions> ALL_WINNING_POSITIONS = Arrays.asList(
-            new RowPositions(1),
-            new RowPositions(2),
-            new RowPositions(3),
-            new ColumnPositions(1),
-            new ColumnPositions(2),
-            new ColumnPositions(3),
+            new Row(1),
+            new Row(2),
+            new Row(3),
+            new Column(1),
+            new Column(2),
+            new Column(3),
             new BackwardDiagonal(),
             new ForwardDiagonal()
     );

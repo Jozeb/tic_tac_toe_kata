@@ -11,7 +11,7 @@ import static board.Marker.NOUGHT;
 import static board.Outcome.CROSSES_WON;
 import static board.Outcome.IN_PROGRESS;
 import static board.Outcome.NOUGHTS_WON;
-import static board.Position.at;
+import static position.Position.at;
 
 public class TicTacGameShould {
 

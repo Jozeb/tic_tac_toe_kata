@@ -1,7 +1,7 @@
 import board.Board;
 import board.Marker;
 import board.Outcome;
-import board.Position;
+import position.Position;
 import exception.WrongMoveException;
 import game.GameOutcome;
 import turn.PlayerTurnChecks;

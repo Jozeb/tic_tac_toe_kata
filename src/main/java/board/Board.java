@@ -1,6 +1,8 @@
 package board;
 
 import exception.PositionAlreadyFilledException;
+import position.Position;
+import position.Positions;
 
 import java.util.HashMap;
 import java.util.Map;

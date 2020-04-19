@@ -1,10 +1,10 @@
-package board;
+package position;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class Positions {
+public abstract class Positions {
     final List<Position> positions;
 
     public Positions(Position... positions) {

@@ -1,4 +1,4 @@
-package board;
+package position;
 
 public class Position {
     private final int row;

@@ -3,7 +3,7 @@ package win;
 import board.Board;
 import board.Marker;
 import board.Outcome;
-import board.Positions;
+import position.Positions;
 
 import java.util.HashMap;
 import java.util.Map;
