@@ -71,30 +71,30 @@ public class TicTacGameShould {
     @Test(expected = CannotPlayCrossException.class)
     public void notAllowCrossToPlayTwice() throws WrongPlayException {
         new TicTacGame()
-                .play(CROSS, at(1, 1))
-                .play(CROSS, at(1, 2));
+                .play(CROSS, at(Row.ONE, Column.ONE))
+                .play(CROSS, at(Row.ONE, Column.TWO));
     }
 
     @Test
     public void winWhenCrossesLinedUpInFirstRow() throws WrongPlayException {
         new TicTacGame()
-                .play(CROSS, at(1, 1))
-                .play(NOUGHT, at(2, 1))
-                .play(CROSS, at(1, 2))
-                .play(NOUGHT, at(2, 2))
-                .play(CROSS, at(1, 3))
+                .play(CROSS, at(Row.ONE, Column.ONE))
+                .play(NOUGHT, at(Row.TWO, Column.ONE))
+                .play(CROSS, at(Row.ONE, Column.TWO))
+                .play(NOUGHT, at(Row.TWO, Column.TWO))
+                .play(CROSS, at(Row.ONE, Column.THREE))
                 .assertThat(CROSSES_WON);
     }
 
     @Test
     public void winWhenNoughtsLinedUpInFirstRow() throws WrongPlayException {
         new TicTacGame()
-                .play(CROSS, at(2, 1))
-                .play(NOUGHT, at(1, 1))
-                .play(CROSS, at(2, 2))
-                .play(NOUGHT, at(1, 2))
-                .play(CROSS, at(3, 3))
-                .play(NOUGHT, at(1, 3))
+                .play(CROSS, at(Row.TWO, Column.ONE))
+                .play(NOUGHT, at(Row.ONE, Column.ONE))
+                .play(CROSS, at(Row.TWO, Column.TWO))
+                .play(NOUGHT, at(Row.ONE, Column.TWO))
+                .play(CROSS, at(Row.THREE, Column.THREE))
+                .play(NOUGHT, at(Row.ONE, Column.THREE))
                 .assertThat(NOUGHTS_WON);
     }
 
