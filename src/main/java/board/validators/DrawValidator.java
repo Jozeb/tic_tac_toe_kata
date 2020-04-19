@@ -11,13 +11,9 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-public class DrawValidator implements BoardValidator {
-    public Optional<GameState> getGameState(Board board) {
-        if (isBoardFull(board)) {
-            return Optional.of(GameState.DRAWN);
-        }
-
-        return Optional.empty();
+public class DrawValidator {
+    public boolean getGameState(Board board) {
+        return isBoardFull(board);
     }
 
     private boolean isBoardFull(Board board) {

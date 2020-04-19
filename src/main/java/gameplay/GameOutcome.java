@@ -1,25 +1,16 @@
 package gameplay;
 
 import board.Board;
-import board.Marker;
 
 import board.validators.*;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import java.util.List;
-import java.util.Optional;
 
 import static gameplay.GameState.IN_PROGRESS;
 
 public class GameOutcome {
 
   GameState gameState = IN_PROGRESS;
-  List<BoardValidator> boardValidators;
 
   public GameOutcome() {
-    boardValidators = Arrays.asList(new DrawValidator());
   }
 
   public void updateBasedOn(Board board) {
@@ -38,13 +29,12 @@ public class GameOutcome {
       return;
     }
 
-    Optional<GameState> gameState = boardValidators.stream()
-            .map(validator -> validator.getGameState(board))
-            .filter(Optional::isPresent)
-            .map(Optional::get)
-            .findFirst();
-    if (gameState.isPresent())
-        this.gameState = gameState.get();
+    DrawValidator drawValidator = new DrawValidator();
+    boolean isGameDrawn = drawValidator.getGameState(board);
+    if (isGameDrawn) {
+      this.gameState = GameState.DRAWN;
+      return;
+    }
   }
 
   public GameState getGameState() {
