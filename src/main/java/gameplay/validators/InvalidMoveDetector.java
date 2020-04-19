@@ -21,6 +21,11 @@ public class InvalidMoveDetector {
         }
         playerTurnChecks.runFor(marker);
 
+        positionAlreadyFilled(position);
+    }
+
+    private void positionAlreadyFilled(Position position) throws PositionAlreadyFilledException {
+
         if (alreadyFilledPositions.contains(position)){
             throw new PositionAlreadyFilledException();
         }

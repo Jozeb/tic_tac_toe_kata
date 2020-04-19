@@ -1,12 +1,10 @@
 import board.Board;
 import board.Marker;
-import exception.GameAlreadyEndedException;
 import gameplay.GameState;
 import gameplay.validators.InvalidMoveDetector;
 import position.Position;
 import exception.WrongPlayException;
 import gameplay.GameOutcome;
-import turn.PlayerTurnChecks;
 
 public class TicTacGame {
 
@@ -16,7 +14,7 @@ public class TicTacGame {
 
     public TicTacGame play(Marker marker, Position position) throws WrongPlayException {
         invalidMoveDetector.detect(marker, position, gameOutcome.getGameState());
-        board.move(marker, position);
+        board.add(marker, position);
         gameOutcome.updateBasedOn(board);
         return this;
     }

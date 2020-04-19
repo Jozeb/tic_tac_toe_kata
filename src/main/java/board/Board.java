@@ -1,20 +1,14 @@
 package board;
 
-import board.exception.PositionAlreadyFilledException;
-import position.Position;
-import position.Positions;
+import static board.Marker.EMPTY;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static board.Marker.EMPTY;
+import position.Position;
+import position.Positions;
 
 public class Board {
     Map<Position, Marker> board = new HashMap<>();
-
-    private void add(Position position, Marker marker) {
-        board.put(position, marker);
-    }
 
     public Marker whatIsAt(Position position) {
         Marker marker = board.get(position);
@@ -23,8 +17,8 @@ public class Board {
         return marker;
     }
 
-    public void move(Marker marker, Position position) {
-        add(position, marker);
+    public void add(Marker marker, Position position) {
+        board.put(position, marker);
     }
 
     public boolean markersAreAllTheSameAt(Positions positions, Marker marker) {
