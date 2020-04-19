@@ -23,6 +23,12 @@ public class GameOutcome {
       this.gameState = outcome.get();
     }
 
+    if (isBoardFull(board)) {
+      this.gameState = GameState.DRAWN;
+    }
+  }
+
+  private boolean isBoardFull(Board board) {
     long filledBoxesCount = Arrays.stream(Row.values())
         .map(row -> Arrays.stream(Column.values())
             .map(column -> Position.at(row, column))
@@ -31,10 +37,7 @@ public class GameOutcome {
             .count()).mapToInt(Math::toIntExact)
         .sum();
 
-    if (filledBoxesCount == 9) {
-        this.gameState = GameState.DRAWN;
-    }
-
+    return filledBoxesCount == 9;
   }
 
   public GameState getGameState() {
