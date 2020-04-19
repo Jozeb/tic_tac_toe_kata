@@ -21,10 +21,12 @@ public class DrawValidator implements BoardValidator {
     }
 
     private boolean isBoardFull(Board board) {
-        Stream<Position> positions = Arrays.stream(Row.values())
-                .flatMap(row -> Arrays.stream(Column.values()).map(column -> Position.at(row, column)));
-
-        return positions.map(board::whatIsAt)
+        return enumeratePositions().map(board::whatIsAt)
                 .noneMatch(Marker::isEmpty);
+    }
+
+    private Stream<Position> enumeratePositions() {
+        return Arrays.stream(Row.values())
+                .flatMap(row -> Arrays.stream(Column.values()).map(column -> Position.at(row, column)));
     }
 }
