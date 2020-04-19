@@ -14,20 +14,20 @@ import static position.Position.at;
 public class TicTacGameShouldDisallowMoveWhen {
 
     @Test(expected = PositionAlreadyFilledException.class)
-    public void playNoughtAndCrossToSamePosition() throws WrongPlayException {
+    public void noughtAndCrossPlayedToSamePosition() throws WrongPlayException {
         new TicTacGame()
                 .play(CROSS, at(Row.ONE, Column.ONE))
                 .play(NOUGHT, at(Row.ONE, Column.ONE));
     }
 
     @Test(expected = MustPlayCrossFirstException.class)
-    public void notAllowNoughtToPlayFirst() throws WrongPlayException {
+    public void noughtPlayedFirst() throws WrongPlayException {
         new TicTacGame()
                 .play(NOUGHT, at(Row.ONE, Column.ONE));
     }
 
     @Test(expected = CannotPlayNoughtException.class)
-    public void notAllowNoughtToPlayTwice() throws WrongPlayException {
+    public void noughtPlayedTwice() throws WrongPlayException {
         new TicTacGame()
                 .play(CROSS, at(Row.ONE, Column.ONE))
                 .play(NOUGHT, at(Row.ONE, Column.TWO))
@@ -35,7 +35,7 @@ public class TicTacGameShouldDisallowMoveWhen {
     }
 
     @Test(expected = CannotPlayCrossException.class)
-    public void notAllowCrossToPlayTwice() throws WrongPlayException {
+    public void crossPlayedTwice() throws WrongPlayException {
         new TicTacGame()
                 .play(CROSS, at(Row.ONE, Column.ONE))
                 .play(CROSS, at(Row.ONE, Column.TWO));
