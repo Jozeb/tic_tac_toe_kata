@@ -48,10 +48,10 @@ public class TicTacGameShould {
     @Test
     public void playCrossSecondTurn() throws WrongPlayException {
         new TicTacGame()
-                .play(CROSS, at(2, 2))
-                .play(NOUGHT, at(1, 1))
-                .play(CROSS, at(1, 2))
-                .assertThat(CROSS, at(1, 2));
+                .play(CROSS, at(Row.TWO, Column.TWO))
+                .play(NOUGHT, at(Row.ONE, Column.ONE))
+                .play(CROSS, at(Row.ONE, Column.TWO))
+                .assertThat(CROSS, at(Row.ONE, Column.TWO));
     }
 
     @Test(expected = MustPlayCrossFirstException.class)
