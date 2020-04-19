@@ -11,7 +11,7 @@ import java.util.Optional;
 
 import static board.Position.at;
 
-public class WinValidator {
+public class AllWinningPositions {
 
     static final List<Positions> ALL_WINNING_POSITIONS = Arrays.asList(
             new RowPositions(1),

@@ -5,7 +5,7 @@ import board.Position;
 import exception.WrongMoveException;
 import turn.TurnCheckers;
 import board.Positions;
-import win.WinValidator;
+import win.AllWinningPositions;
 
 import java.util.Optional;
 
@@ -18,7 +18,7 @@ public class TicTacGame {
 
     final Board board = new Board();
     final TurnCheckers turnCheckers = new TurnCheckers();
-    final WinValidator winValidator = new WinValidator();
+    final AllWinningPositions allWinningPositions = new AllWinningPositions();
 
     public TicTacGame play(Marker marker, Position position) throws WrongMoveException {
         turnCheckers.runAllFor(marker);
@@ -31,7 +31,7 @@ public class TicTacGame {
     }
 
     public Outcome outcome() {
-        Optional<Positions> winningPositions = winValidator.isWin(board);
+        Optional<Positions> winningPositions = allWinningPositions.isWin(board);
         if (winningPositions.isPresent()) {
             if (board.whatIsAt(winningPositions.get().any()) == NOUGHT) {
                 return NOUGHTS_WON;
