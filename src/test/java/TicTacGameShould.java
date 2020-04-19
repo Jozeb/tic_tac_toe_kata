@@ -10,9 +10,9 @@ import org.junit.Test;
 import static board.Marker.CROSS;
 import static board.Marker.EMPTY;
 import static board.Marker.NOUGHT;
-import static gameplay.OutcomeType.CROSSES_WON;
+import static gameplay.OutcomeType.WON_BY_CROSSES;
 import static gameplay.OutcomeType.IN_PROGRESS;
-import static gameplay.OutcomeType.NOUGHTS_WON;
+import static gameplay.OutcomeType.WON_BY_NOUGHTS;
 import static position.Position.at;
 
 public class TicTacGameShould {
@@ -20,14 +20,14 @@ public class TicTacGameShould {
     @Test
     public void indicateEmptyPosition() {
         new TicTacGame()
-                .assertThat(EMPTY, at(Row.ONE, Column.ONE));
+                .assertThatGameIs(EMPTY, at(Row.ONE, Column.ONE));
     }
 
     @Test
     public void playCross() throws WrongPlayException {
         new TicTacGame()
                 .play(CROSS, at(Row.ONE, Column.ONE))
-                .assertThat(CROSS, at(Row.ONE, Column.ONE));
+                .assertThatGameIs(CROSS, at(Row.ONE, Column.ONE));
     }
 
     @Test(expected = PositionAlreadyFilledException.class)
@@ -42,7 +42,7 @@ public class TicTacGameShould {
         new TicTacGame()
                 .play(CROSS, at(Row.ONE, Column.ONE))
                 .play(NOUGHT, at(Row.ONE, Column.TWO))
-                .assertThat(NOUGHT, at(Row.ONE, Column.TWO));
+                .assertThatGameIs(NOUGHT, at(Row.ONE, Column.TWO));
     }
 
     @Test
@@ -51,7 +51,7 @@ public class TicTacGameShould {
                 .play(CROSS, at(Row.TWO, Column.TWO))
                 .play(NOUGHT, at(Row.ONE, Column.ONE))
                 .play(CROSS, at(Row.ONE, Column.TWO))
-                .assertThat(CROSS, at(Row.ONE, Column.TWO));
+                .assertThatGameIs(CROSS, at(Row.ONE, Column.TWO));
     }
 
     @Test(expected = MustPlayCrossFirstException.class)
@@ -83,7 +83,7 @@ public class TicTacGameShould {
                 .play(CROSS, at(Row.ONE, Column.TWO))
                 .play(NOUGHT, at(Row.TWO, Column.TWO))
                 .play(CROSS, at(Row.ONE, Column.THREE))
-                .assertThat(CROSSES_WON);
+                .assertThatGameIs(WON_BY_CROSSES);
     }
 
     @Test
@@ -95,7 +95,7 @@ public class TicTacGameShould {
                 .play(NOUGHT, at(Row.ONE, Column.TWO))
                 .play(CROSS, at(Row.THREE, Column.THREE))
                 .play(NOUGHT, at(Row.ONE, Column.THREE))
-                .assertThat(NOUGHTS_WON);
+                .assertThatGameIs(WON_BY_NOUGHTS);
     }
 
     @Test
@@ -107,7 +107,7 @@ public class TicTacGameShould {
                 .play(NOUGHT, at(Row.TWO, Column.TWO))
                 .play(CROSS, at(Row.THREE, Column.THREE))
                 .play(NOUGHT, at(Row.TWO, Column.THREE))
-                .assertThat(NOUGHTS_WON);
+                .assertThatGameIs(WON_BY_NOUGHTS);
     }
 
     @Test
@@ -119,7 +119,7 @@ public class TicTacGameShould {
                 .play(NOUGHT, at(Row.THREE, Column.TWO))
                 .play(CROSS, at(Row.TWO, Column.THREE))
                 .play(NOUGHT, at(Row.THREE, Column.THREE))
-                .assertThat(NOUGHTS_WON);
+                .assertThatGameIs(WON_BY_NOUGHTS);
     }
 
     @Test
@@ -131,7 +131,7 @@ public class TicTacGameShould {
                 .play(NOUGHT, at(Row.TWO, Column.ONE))
                 .play(CROSS, at(Row.TWO, Column.THREE))
                 .play(NOUGHT, at(Row.THREE, Column.ONE))
-                .assertThat(NOUGHTS_WON);
+                .assertThatGameIs(WON_BY_NOUGHTS);
     }
 
     @Test
@@ -143,7 +143,7 @@ public class TicTacGameShould {
                 .play(NOUGHT, at(Row.TWO, Column.TWO))
                 .play(CROSS, at(Row.TWO, Column.ONE))
                 .play(NOUGHT, at(Row.THREE, Column.TWO))
-                .assertThat(NOUGHTS_WON);
+                .assertThatGameIs(WON_BY_NOUGHTS);
     }
 
     @Test
@@ -155,7 +155,7 @@ public class TicTacGameShould {
                 .play(NOUGHT, at(Row.TWO, Column.THREE))
                 .play(CROSS, at(Row.TWO, Column.ONE))
                 .play(NOUGHT, at(Row.THREE, Column.THREE))
-                .assertThat(NOUGHTS_WON);
+                .assertThatGameIs(WON_BY_NOUGHTS);
     }
 
     @Test
@@ -167,7 +167,7 @@ public class TicTacGameShould {
                 .play(NOUGHT, at(Row.TWO, Column.TWO))
                 .play(CROSS, at(Row.TWO, Column.ONE))
                 .play(NOUGHT, at(Row.THREE, Column.THREE))
-                .assertThat(NOUGHTS_WON);
+                .assertThatGameIs(WON_BY_NOUGHTS);
     }
 
     @Test
@@ -179,13 +179,13 @@ public class TicTacGameShould {
                 .play(NOUGHT, at(Row.TWO, Column.TWO))
                 .play(CROSS, at(Row.TWO, Column.ONE))
                 .play(NOUGHT, at(Row.THREE, Column.ONE))
-                .assertThat(NOUGHTS_WON);
+                .assertThatGameIs(WON_BY_NOUGHTS);
     }
 
     @Test
     public void beInProgressWhenOnlyOneMove() throws WrongPlayException {
         new TicTacGame()
                 .play(CROSS, at(Row.ONE, Column.ONE))
-                .assertThat(IN_PROGRESS);
+                .assertThatGameIs(IN_PROGRESS);
     }
 }

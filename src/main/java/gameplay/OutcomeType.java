@@ -1,5 +1,5 @@
 package gameplay;
 
 public enum OutcomeType {
-    CROSSES_WON, NOUGHTS_WON, IN_PROGRESS;
+    WON_BY_CROSSES, WON_BY_NOUGHTS, IN_PROGRESS;
 }

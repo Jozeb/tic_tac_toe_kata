@@ -19,11 +19,11 @@ public class TicTacGame {
         return this;
     }
 
-    public void assertThat(Marker marker, Position position) {
+    public void assertThatGameIs(Marker marker, Position position) {
         assert marker == board.whatIsAt(position);
     }
 
-    public void assertThat(OutcomeType outcomeType) {
+    public void assertThatGameIs(OutcomeType outcomeType) {
         assert outcomeType == gameOutcome.getOutcomeType();
     }
 }
