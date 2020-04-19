@@ -11,7 +11,8 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-public class DrawValidator {
+public class DrawValidator implements BoardValidator {
+    @Override
     public boolean getGameState(Board board) {
         return isBoardFull(board);
     }

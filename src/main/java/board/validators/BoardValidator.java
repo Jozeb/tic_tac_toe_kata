@@ -6,5 +6,5 @@ import gameplay.GameState;
 import java.util.Optional;
 
 public interface BoardValidator {
-    public Optional<GameState> getGameState(Board board);
+    public boolean getGameState(Board board);
 }

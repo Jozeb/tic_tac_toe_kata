@@ -10,10 +10,11 @@ import java.util.HashMap;
 import java.util.Map;
 import win.AllWinningPositions;
 
-public class NoughtWinValidator  {
+public class NoughtWinValidator implements BoardValidator {
 
   final AllWinningPositions allWinningPositions = new AllWinningPositions();
 
+  @Override
   public boolean getGameState(Board board) {
     return allWinningPositions.stream()
         .anyMatch(positions -> board.markersAreAllTheSameAt(positions, NOUGHT));
