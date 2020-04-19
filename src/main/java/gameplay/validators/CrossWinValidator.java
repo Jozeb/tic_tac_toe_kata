@@ -1,24 +1,25 @@
-package board.validators;
-
-import static board.Marker.NOUGHT;
-import static gameplay.GameState.WON_BY_NOUGHTS;
+package gameplay.validators;
 
 import board.Board;
 import gameplay.GameState;
 import win.AllWinningPositions;
 
-public class NoughtWinValidator implements BoardValidator {
+import static board.Marker.CROSS;
+import static gameplay.GameState.WON_BY_CROSSES;
+
+public class CrossWinValidator implements BoardValidator {
 
   final AllWinningPositions allWinningPositions = new AllWinningPositions();
 
   @Override
   public boolean isGameFinished(Board board) {
     return allWinningPositions.stream()
-        .anyMatch(positions -> board.markersAreAllTheSameAt(positions, NOUGHT));
+        .anyMatch(positions -> board.markersAreAllTheSameAt(positions, CROSS));
   }
 
   @Override
   public GameState getGameState() {
-    return WON_BY_NOUGHTS;
+    return WON_BY_CROSSES;
   }
 }
+

@@ -1,4 +1,4 @@
-package board.validators;
+package gameplay.validators;
 
 import board.Board;
 import board.Marker;
@@ -8,7 +8,6 @@ import position.Position;
 import position.Row;
 
 import java.util.Arrays;
-import java.util.Optional;
 import java.util.stream.Stream;
 
 import static gameplay.GameState.DRAWN;

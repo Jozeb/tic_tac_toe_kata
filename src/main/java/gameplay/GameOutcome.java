@@ -2,7 +2,7 @@ package gameplay;
 
 import board.Board;
 
-import board.validators.*;
+import gameplay.validators.*;
 
 import java.util.Arrays;
 import java.util.List;
