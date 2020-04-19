@@ -26,23 +26,23 @@ public class TicTacGameShould {
     @Test
     public void playCross() throws WrongPlayException {
         new TicTacGame()
-                .play(CROSS, at(1, 1))
-                .assertThat(CROSS, at(1, 1));
+                .play(CROSS, at(Row.ONE, Column.ONE))
+                .assertThat(CROSS, at(Row.ONE, Column.ONE));
     }
 
     @Test(expected = PositionAlreadyFilledException.class)
     public void playNoughtAndCrossToSamePosition() throws WrongPlayException {
         new TicTacGame()
-                .play(CROSS, at(1, 1))
-                .play(NOUGHT, at(1, 1));
+                .play(CROSS, at(Row.ONE, Column.ONE))
+                .play(NOUGHT, at(Row.ONE, Column.ONE));
     }
 
     @Test
     public void playNought() throws WrongPlayException {
         new TicTacGame()
-                .play(CROSS, at(1, 1))
-                .play(NOUGHT, at(1, 2))
-                .assertThat(NOUGHT, at(1, 2));
+                .play(CROSS, at(Row.ONE, Column.ONE))
+                .play(NOUGHT, at(Row.ONE, Column.TWO))
+                .assertThat(NOUGHT, at(Row.ONE, Column.TWO));
     }
 
     @Test
