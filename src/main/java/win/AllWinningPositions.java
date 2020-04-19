@@ -1,13 +1,12 @@
 package win;
 
-import board.Board;
 import board.ColumnPositions;
 import board.Positions;
 import board.RowPositions;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Stream;
 
 import static board.Position.at;
 
@@ -24,11 +23,8 @@ public class AllWinningPositions {
             new Positions(at(1,3), at(2,2), at(3,1))
     );
 
-    public Optional<Positions> isWin(Board board) {
-        return ALL_WINNING_POSITIONS.stream()
-                .filter(board::markersAreAllTheSameAt)
-                .filter(positions -> board.markerIsNotEmpty(positions.any()))
-                .findFirst();
+    public Stream<Positions> stream() {
+        return ALL_WINNING_POSITIONS.stream();
     }
 
 }
