@@ -1,4 +1,5 @@
 import board.exception.PositionAlreadyFilledException;
+import exception.GameAlreadyEndedException;
 import exception.WrongPlayException;
 import org.junit.Test;
 import position.Column;
@@ -9,6 +10,8 @@ import turn.exception.MustPlayCrossFirstException;
 
 import static board.Marker.CROSS;
 import static board.Marker.NOUGHT;
+import static gameplay.GameState.DRAWN;
+import static gameplay.GameState.WON_BY_NOUGHTS;
 import static position.Position.at;
 
 public class TicTacGameShouldDisallowMoveWhen {
@@ -39,5 +42,19 @@ public class TicTacGameShouldDisallowMoveWhen {
         new TicTacGame()
                 .play(CROSS, at(Row.ONE, Column.ONE))
                 .play(CROSS, at(Row.ONE, Column.TWO));
+    }
+
+    @Test(expected = GameAlreadyEndedException.class)
+    public void moveAfterGameEnd() throws WrongPlayException {
+        new TicTacGame()
+                .play(CROSS, at(Row.TWO, Column.ONE))
+                .play(NOUGHT, at(Row.ONE, Column.ONE))
+                .play(CROSS, at(Row.TWO, Column.TWO))
+                .play(NOUGHT, at(Row.ONE, Column.TWO))
+                .play(CROSS, at(Row.THREE, Column.THREE))
+                .play(NOUGHT, at(Row.ONE, Column.THREE))
+                .play(CROSS, at(Row.TWO, Column.THREE));
+
+
     }
 }
