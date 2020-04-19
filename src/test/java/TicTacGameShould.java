@@ -30,7 +30,7 @@ public class TicTacGameShould {
 
     @Test(expected = PositionAlreadyFilledException.class)
     public void playNoughtAndCrossToSamePosition() throws WrongMoveException {
-        TicTacGame ticTacGame = new TicTacGame()
+        new TicTacGame()
                 .play(CROSS, at(1, 1))
                 .play(NOUGHT, at(1, 1));
     }
