@@ -2,7 +2,7 @@ import board.Board;
 import board.Marker;
 import board.Outcome;
 import position.Position;
-import exception.WrongMoveException;
+import exception.WrongPlayException;
 import game.GameOutcome;
 import turn.PlayerTurnChecks;
 
@@ -12,7 +12,7 @@ public class TicTacGame {
     final PlayerTurnChecks playerTurnChecks = new PlayerTurnChecks();
     final GameOutcome gameOutcome = new GameOutcome();
 
-    public TicTacGame play(Marker marker, Position position) throws WrongMoveException {
+    public TicTacGame play(Marker marker, Position position) throws WrongPlayException {
         playerTurnChecks.runFor(marker);
         board.move(marker, position);
         gameOutcome.updateBasedOn(board);

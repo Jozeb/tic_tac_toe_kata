@@ -1,7 +1,7 @@
 package turn;
 
 import board.Marker;
-import exception.WrongMoveException;
+import exception.WrongPlayException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,7 +11,7 @@ public class PlayerTurnChecks {
             new FirstPlayerTurnCheck(),
             new ConsecutiveTurnsCheck());
 
-    public void runFor(Marker marker) throws WrongMoveException {
+    public void runFor(Marker marker) throws WrongPlayException {
         for (PlayerTurnCheck playerTurnCheck : playerTurnChecks) {
             playerTurnCheck.forThe(marker);
         }

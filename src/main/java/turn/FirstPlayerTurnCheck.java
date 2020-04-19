@@ -1,7 +1,7 @@
 package turn;
 
 import board.Marker;
-import exception.PlayCrossFirstException;
+import exception.MustPlayCrossFirstException;
 
 import static board.Marker.NOUGHT;
 
@@ -10,9 +10,9 @@ public class FirstPlayerTurnCheck implements PlayerTurnCheck {
     boolean played = false;
     private static final Marker MARKER = NOUGHT;
 
-    public void forThe(Marker marker) throws PlayCrossFirstException {
+    public void forThe(Marker marker) throws MustPlayCrossFirstException {
         if (isFirstMoveMarker(marker) && notPlayed())
-            throw new PlayCrossFirstException();
+            throw new MustPlayCrossFirstException();
         played = true;
     }
 

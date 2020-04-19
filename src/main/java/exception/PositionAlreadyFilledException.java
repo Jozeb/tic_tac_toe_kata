@@ -1,4 +1,4 @@
 package exception;
 
-public class PositionAlreadyFilledException extends WrongMoveException {
+public class PositionAlreadyFilledException extends WrongPlayException {
 }
