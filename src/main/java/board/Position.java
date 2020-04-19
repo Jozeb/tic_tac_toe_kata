@@ -5,6 +5,8 @@ public class Position {
     private final int column;
 
     Position(int row, int column) {
+        assert row > 0;
+        assert column > 0;
         this.row = row;
         this.column = column;
     }
