@@ -1,5 +1,5 @@
-package board;
+package gameplay;
 
-public enum Outcome {
+public enum OutcomeType {
     CROSSES_WON, NOUGHTS_WON, IN_PROGRESS;
 }

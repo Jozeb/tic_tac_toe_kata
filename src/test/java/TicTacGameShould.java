@@ -8,9 +8,9 @@ import org.junit.Test;
 import static board.Marker.CROSS;
 import static board.Marker.EMPTY;
 import static board.Marker.NOUGHT;
-import static board.Outcome.CROSSES_WON;
-import static board.Outcome.IN_PROGRESS;
-import static board.Outcome.NOUGHTS_WON;
+import static gameplay.OutcomeType.CROSSES_WON;
+import static gameplay.OutcomeType.IN_PROGRESS;
+import static gameplay.OutcomeType.NOUGHTS_WON;
 import static position.Position.at;
 
 public class TicTacGameShould {

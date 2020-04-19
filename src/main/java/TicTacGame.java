@@ -1,9 +1,9 @@
 import board.Board;
 import board.Marker;
-import board.Outcome;
+import gameplay.OutcomeType;
 import position.Position;
 import exception.WrongPlayException;
-import game.GameOutcome;
+import gameplay.GameOutcome;
 import turn.PlayerTurnChecks;
 
 public class TicTacGame {
@@ -23,7 +23,7 @@ public class TicTacGame {
         assert marker == board.whatIsAt(position);
     }
 
-    public void assertThat(Outcome outcome) {
-        assert outcome == gameOutcome.getOutcome();
+    public void assertThat(OutcomeType outcomeType) {
+        assert outcomeType == gameOutcome.getOutcomeType();
     }
 }
