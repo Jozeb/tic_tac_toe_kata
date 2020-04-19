@@ -25,14 +25,13 @@ public class GameOutcome {
   }
 
   public void updateBasedOn(Board board) {
-    for (BoardValidator validator : boardValidators) {
-      Optional<GameState> outcome = validator.getGameState(board);
-
-      if (outcome.isPresent()) {
-        this.gameState = outcome.get();
-        return;
-      }
-    }
+    Optional<GameState> gameState = boardValidators.stream()
+            .map(validator -> validator.getGameState(board))
+            .filter(Optional::isPresent)
+            .map(Optional::get)
+            .findFirst();
+    if (gameState.isPresent())
+        this.gameState = gameState.get();
   }
 
   public GameState getGameState() {
