@@ -20,16 +20,14 @@ public class GameOutcome {
 
   public void updateBasedOn(Board board) {
 
-    for (BoardValidator validator : boardValidators) {
-      if (validator.isGameFinished(board)) {
-        this.gameState = validator.getGameState();
-        return;
-      }
-    }
+    this.gameState = boardValidators.stream()
+            .filter(validator -> validator.isGameFinished(board))
+            .findFirst()
+            .map(BoardValidator::getGameState)
+            .orElse(IN_PROGRESS);
   }
 
   public GameState getGameState() {
     return gameState;
   }
-
 }
