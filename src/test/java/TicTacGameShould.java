@@ -101,91 +101,91 @@ public class TicTacGameShould {
     @Test
     public void winWhenNoughtsLinedUpInSecondRow() throws WrongPlayException {
         new TicTacGame()
-                .play(CROSS, at(1, 1))
-                .play(NOUGHT, at(2, 1))
-                .play(CROSS, at(1, 2))
-                .play(NOUGHT, at(2, 2))
-                .play(CROSS, at(3, 3))
-                .play(NOUGHT, at(2, 3))
+                .play(CROSS, at(Row.ONE, Column.ONE))
+                .play(NOUGHT, at(Row.TWO, Column.ONE))
+                .play(CROSS, at(Row.ONE, Column.TWO))
+                .play(NOUGHT, at(Row.TWO, Column.TWO))
+                .play(CROSS, at(Row.THREE, Column.THREE))
+                .play(NOUGHT, at(Row.TWO, Column.THREE))
                 .assertThat(NOUGHTS_WON);
     }
 
     @Test
     public void winWhenNoughtsLinedUpInThirdRow() throws WrongPlayException {
         new TicTacGame()
-                .play(CROSS, at(1, 1))
-                .play(NOUGHT, at(3, 1))
-                .play(CROSS, at(1, 2))
-                .play(NOUGHT, at(3, 2))
-                .play(CROSS, at(2, 3))
-                .play(NOUGHT, at(3, 3))
+                .play(CROSS, at(Row.ONE, Column.ONE))
+                .play(NOUGHT, at(Row.THREE, Column.ONE))
+                .play(CROSS, at(Row.ONE, Column.TWO))
+                .play(NOUGHT, at(Row.THREE, Column.TWO))
+                .play(CROSS, at(Row.TWO, Column.THREE))
+                .play(NOUGHT, at(Row.THREE, Column.THREE))
                 .assertThat(NOUGHTS_WON);
     }
 
     @Test
     public void winWhenNoughtsLinedUpInFirstColumn() throws WrongPlayException {
         new TicTacGame()
-                .play(CROSS, at(1, 2))
-                .play(NOUGHT, at(1, 1))
-                .play(CROSS, at(1, 3))
-                .play(NOUGHT, at(2, 1))
-                .play(CROSS, at(2, 3))
-                .play(NOUGHT, at(3, 1))
+                .play(CROSS, at(Row.ONE, Column.TWO))
+                .play(NOUGHT, at(Row.ONE, Column.ONE))
+                .play(CROSS, at(Row.ONE, Column.THREE))
+                .play(NOUGHT, at(Row.TWO, Column.ONE))
+                .play(CROSS, at(Row.TWO, Column.THREE))
+                .play(NOUGHT, at(Row.THREE, Column.ONE))
                 .assertThat(NOUGHTS_WON);
     }
 
     @Test
     public void winWhenNoughtsLinedUpInSecondColumn() throws WrongPlayException {
         new TicTacGame()
-                .play(CROSS, at(1, 1))
-                .play(NOUGHT, at(1, 2))
-                .play(CROSS, at(1, 3))
-                .play(NOUGHT, at(2, 2))
-                .play(CROSS, at(2, 1))
-                .play(NOUGHT, at(3, 2))
+                .play(CROSS, at(Row.ONE, Column.ONE))
+                .play(NOUGHT, at(Row.ONE, Column.TWO))
+                .play(CROSS, at(Row.ONE, Column.THREE))
+                .play(NOUGHT, at(Row.TWO, Column.TWO))
+                .play(CROSS, at(Row.TWO, Column.ONE))
+                .play(NOUGHT, at(Row.THREE, Column.TWO))
                 .assertThat(NOUGHTS_WON);
     }
 
     @Test
     public void winWhenNoughtsLinedUpInThirdColumn() throws WrongPlayException {
         new TicTacGame()
-                .play(CROSS, at(1, 1))
-                .play(NOUGHT, at(1, 3))
-                .play(CROSS, at(1, 2))
-                .play(NOUGHT, at(2, 3))
-                .play(CROSS, at(2, 1))
-                .play(NOUGHT, at(3, 3))
+                .play(CROSS, at(Row.ONE, Column.ONE))
+                .play(NOUGHT, at(Row.ONE, Column.THREE))
+                .play(CROSS, at(Row.ONE, Column.TWO))
+                .play(NOUGHT, at(Row.TWO, Column.THREE))
+                .play(CROSS, at(Row.TWO, Column.ONE))
+                .play(NOUGHT, at(Row.THREE, Column.THREE))
                 .assertThat(NOUGHTS_WON);
     }
 
     @Test
     public void winWhenNoughtsLinedUpInFirstDiagonal() throws WrongPlayException {
         new TicTacGame()
-                .play(CROSS, at(1, 2))
-                .play(NOUGHT, at(1, 1))
-                .play(CROSS, at(1, 3))
-                .play(NOUGHT, at(2, 2))
-                .play(CROSS, at(2, 1))
-                .play(NOUGHT, at(3, 3))
+                .play(CROSS, at(Row.ONE, Column.TWO))
+                .play(NOUGHT, at(Row.ONE, Column.ONE))
+                .play(CROSS, at(Row.ONE, Column.THREE))
+                .play(NOUGHT, at(Row.TWO, Column.TWO))
+                .play(CROSS, at(Row.TWO, Column.ONE))
+                .play(NOUGHT, at(Row.THREE, Column.THREE))
                 .assertThat(NOUGHTS_WON);
     }
 
     @Test
     public void winWhenNoughtsLinedUpInSecondDiagonal() throws WrongPlayException {
         new TicTacGame()
-                .play(CROSS, at(1, 1))
-                .play(NOUGHT, at(1, 3))
-                .play(CROSS, at(1, 2))
-                .play(NOUGHT, at(2, 2))
-                .play(CROSS, at(2, 1))
-                .play(NOUGHT, at(3, 1))
+                .play(CROSS, at(Row.ONE, Column.ONE))
+                .play(NOUGHT, at(Row.ONE, Column.THREE))
+                .play(CROSS, at(Row.ONE, Column.TWO))
+                .play(NOUGHT, at(Row.TWO, Column.TWO))
+                .play(CROSS, at(Row.TWO, Column.ONE))
+                .play(NOUGHT, at(Row.THREE, Column.ONE))
                 .assertThat(NOUGHTS_WON);
     }
 
     @Test
     public void beInProgressWhenOnlyOneMove() throws WrongPlayException {
         new TicTacGame()
-                .play(CROSS, at(1, 1))
+                .play(CROSS, at(Row.ONE, Column.ONE))
                 .assertThat(IN_PROGRESS);
     }
 
