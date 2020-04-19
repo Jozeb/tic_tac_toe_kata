@@ -10,9 +10,9 @@ import org.junit.Test;
 import static board.Marker.CROSS;
 import static board.Marker.EMPTY;
 import static board.Marker.NOUGHT;
-import static gameplay.OutcomeType.WON_BY_CROSSES;
-import static gameplay.OutcomeType.IN_PROGRESS;
-import static gameplay.OutcomeType.WON_BY_NOUGHTS;
+import static gameplay.GameState.WON_BY_CROSSES;
+import static gameplay.GameState.IN_PROGRESS;
+import static gameplay.GameState.WON_BY_NOUGHTS;
 import static position.Position.at;
 
 public class TicTacGameShould {

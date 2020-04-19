@@ -5,21 +5,21 @@ import win.WinValidator;
 
 import java.util.Optional;
 
-import static gameplay.OutcomeType.IN_PROGRESS;
+import static gameplay.GameState.IN_PROGRESS;
 
 public class GameOutcome {
 
-    OutcomeType outcomeType = IN_PROGRESS;
+    GameState gameState = IN_PROGRESS;
     WinValidator winValidator = new WinValidator();
 
     public void updateBasedOn(Board board) {
-        Optional<OutcomeType> outcome = winValidator.isWin(board);
+        Optional<GameState> outcome = winValidator.isWin(board);
         if (outcome.isPresent()) {
-            this.outcomeType = outcome.get();
+            this.gameState = outcome.get();
         }
     }
 
-    public OutcomeType getOutcomeType() {
-        return outcomeType;
+    public GameState getGameState() {
+        return gameState;
     }
 }
