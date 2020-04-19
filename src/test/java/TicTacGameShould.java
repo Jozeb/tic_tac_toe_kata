@@ -9,6 +9,9 @@ import org.junit.Test;
 import static board.Marker.CROSS;
 import static board.Marker.NOUGHT;
 import static board.Marker.EMPTY;
+import static board.Outcome.CROSSES_WON;
+import static board.Outcome.NOUGHTS_WON;
+import static board.Outcome.IN_PROGRESS;
 import static board.Position.at;
 
 public class TicTacGameShould {
@@ -73,115 +76,115 @@ public class TicTacGameShould {
 
     @Test
     public void winWhenCrossesLinedUpInFirstRow() throws WrongMoveException {
-        TicTacGame ticTacGame = new TicTacGame()
+        new TicTacGame()
                 .play(CROSS, at(1, 1))
                 .play(NOUGHT, at(2, 1))
                 .play(CROSS, at(1, 2))
                 .play(NOUGHT, at(2, 2))
-                .play(CROSS, at(1, 3));
-        assert ticTacGame.outcome() == Outcome.CROSSES_WON;
+                .play(CROSS, at(1, 3))
+                .assertThat(CROSSES_WON);
     }
 
     @Test
     public void winWhenNoughtsLinedUpInFirstRow() throws WrongMoveException {
-        TicTacGame ticTacGame = new TicTacGame()
+        new TicTacGame()
                 .play(CROSS, at(2, 1))
                 .play(NOUGHT, at(1, 1))
                 .play(CROSS, at(2, 2))
                 .play(NOUGHT, at(1, 2))
                 .play(CROSS, at(3, 3))
-                .play(NOUGHT, at(1, 3));
-        assert ticTacGame.outcome() == Outcome.NOUGHTS_WON;
+                .play(NOUGHT, at(1, 3))
+                .assertThat(NOUGHTS_WON);
     }
 
     @Test
     public void winWhenNoughtsLinedUpInSecondRow() throws WrongMoveException {
-        TicTacGame ticTacGame = new TicTacGame()
+        new TicTacGame()
                 .play(CROSS, at(1, 1))
                 .play(NOUGHT, at(2, 1))
                 .play(CROSS, at(1, 2))
                 .play(NOUGHT, at(2, 2))
                 .play(CROSS, at(3, 3))
-                .play(NOUGHT, at(2, 3));
-        assert ticTacGame.outcome() == Outcome.NOUGHTS_WON;
+                .play(NOUGHT, at(2, 3))
+                .assertThat(NOUGHTS_WON);
     }
 
     @Test
     public void winWhenNoughtsLinedUpInThirdRow() throws WrongMoveException {
-        TicTacGame ticTacGame = new TicTacGame()
+        new TicTacGame()
                 .play(CROSS, at(1, 1))
                 .play(NOUGHT, at(3, 1))
                 .play(CROSS, at(1, 2))
                 .play(NOUGHT, at(3, 2))
                 .play(CROSS, at(2, 3))
-                .play(NOUGHT, at(3, 3));
-        assert ticTacGame.outcome() == Outcome.NOUGHTS_WON;
+                .play(NOUGHT, at(3, 3))
+                .assertThat(NOUGHTS_WON);
     }
 
     @Test
     public void winWhenNoughtsLinedUpInFirstColumn() throws WrongMoveException {
-        TicTacGame ticTacGame = new TicTacGame()
+        new TicTacGame()
                 .play(CROSS, at(1, 2))
                 .play(NOUGHT, at(1, 1))
                 .play(CROSS, at(1, 3))
                 .play(NOUGHT, at(2, 1))
                 .play(CROSS, at(2, 3))
-                .play(NOUGHT, at(3, 1));
-        assert ticTacGame.outcome() == Outcome.NOUGHTS_WON;
+                .play(NOUGHT, at(3, 1))
+                .assertThat(NOUGHTS_WON);
     }
 
     @Test
     public void winWhenNoughtsLinedUpInSecondColumn() throws WrongMoveException {
-        TicTacGame ticTacGame = new TicTacGame()
+        new TicTacGame()
                 .play(CROSS, at(1, 1))
                 .play(NOUGHT, at(1, 2))
                 .play(CROSS, at(1, 3))
                 .play(NOUGHT, at(2, 2))
                 .play(CROSS, at(2, 1))
-                .play(NOUGHT, at(3, 2));
-        assert ticTacGame.outcome() == Outcome.NOUGHTS_WON;
+                .play(NOUGHT, at(3, 2))
+                .assertThat(NOUGHTS_WON);
     }
 
     @Test
     public void winWhenNoughtsLinedUpInThirdColumn() throws WrongMoveException {
-        TicTacGame ticTacGame = new TicTacGame()
+        new TicTacGame()
                 .play(CROSS, at(1, 1))
                 .play(NOUGHT, at(1, 3))
                 .play(CROSS, at(1, 2))
                 .play(NOUGHT, at(2, 3))
                 .play(CROSS, at(2, 1))
-                .play(NOUGHT, at(3, 3));
-        assert ticTacGame.outcome() == Outcome.NOUGHTS_WON;
+                .play(NOUGHT, at(3, 3))
+                .assertThat(NOUGHTS_WON);
     }
 
     @Test
     public void winWhenNoughtsLinedUpInFirstDiagonal() throws WrongMoveException {
-        TicTacGame ticTacGame = new TicTacGame()
+        new TicTacGame()
                 .play(CROSS, at(1, 2))
                 .play(NOUGHT, at(1, 1))
                 .play(CROSS, at(1, 3))
                 .play(NOUGHT, at(2, 2))
                 .play(CROSS, at(2, 1))
-                .play(NOUGHT, at(3, 3));
-        assert ticTacGame.outcome() == Outcome.NOUGHTS_WON;
+                .play(NOUGHT, at(3, 3))
+                .assertThat(NOUGHTS_WON);
     }
 
     @Test
     public void winWhenNoughtsLinedUpInSecondDiagonal() throws WrongMoveException {
-        TicTacGame ticTacGame = new TicTacGame()
+        new TicTacGame()
                 .play(CROSS, at(1, 1))
                 .play(NOUGHT, at(1, 3))
                 .play(CROSS, at(1, 2))
                 .play(NOUGHT, at(2, 2))
                 .play(CROSS, at(2, 1))
-                .play(NOUGHT, at(3, 1));
-        assert ticTacGame.outcome() == Outcome.NOUGHTS_WON;
+                .play(NOUGHT, at(3, 1))
+                .assertThat(NOUGHTS_WON);
     }
 
     @Test
     public void beInProgressWhenOnlyOneMove() throws WrongMoveException {
-        TicTacGame ticTacGame = new TicTacGame()
-                .play(CROSS, at(1, 1));
-        assert ticTacGame.outcome() == Outcome.IN_PROGRESS;
+        new TicTacGame()
+                .play(CROSS, at(1, 1))
+                .assertThat(IN_PROGRESS);
     }
 }

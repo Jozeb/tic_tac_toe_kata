@@ -22,18 +22,17 @@ public class Board {
         return marker;
     }
 
+    public void move(Marker marker, Position position) throws PositionAlreadyFilledException {
+        if (contains(position))
+            throw new PositionAlreadyFilledException();
+        add(position, marker);
+    }
+
     public boolean markersAreAllTheSameAt(Positions positions) {
         return positions.stream().map(this::whatIsAt).distinct().count() == 1;
     }
 
     public boolean markerIsNotEmpty(Position position) {
         return whatIsAt(position).isNotEmpty();
-    }
-
-    public void move(Marker marker, Position position) throws PositionAlreadyFilledException {
-        if (contains(position)) {
-            throw new PositionAlreadyFilledException();
-        }
-        add(position, marker);
     }
 }

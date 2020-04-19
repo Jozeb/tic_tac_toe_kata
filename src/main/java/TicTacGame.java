@@ -3,26 +3,19 @@ import board.Marker;
 import board.Outcome;
 import board.Position;
 import exception.WrongMoveException;
+import game.GameOutcome;
 import turn.TurnCheckers;
-import board.Positions;
-import win.AllWinningPositions;
-
-import java.util.Optional;
-
-import static board.Marker.NOUGHT;
-import static board.Outcome.CROSSES_WON;
-import static board.Outcome.IN_PROGRESS;
-import static board.Outcome.NOUGHTS_WON;
 
 public class TicTacGame {
 
     final Board board = new Board();
     final TurnCheckers turnCheckers = new TurnCheckers();
-    final AllWinningPositions allWinningPositions = new AllWinningPositions();
+    final GameOutcome gameOutcome = new GameOutcome();
 
     public TicTacGame play(Marker marker, Position position) throws WrongMoveException {
         turnCheckers.runAllFor(marker);
         board.move(marker, position);
+        gameOutcome.updateBasedOn(board);
         return this;
     }
 
@@ -30,15 +23,7 @@ public class TicTacGame {
         assert marker == board.whatIsAt(position);
     }
 
-    public Outcome outcome() {
-        Optional<Positions> winningPositions = allWinningPositions.isWin(board);
-        if (winningPositions.isPresent()) {
-            if (board.whatIsAt(winningPositions.get().any()) == NOUGHT) {
-                return NOUGHTS_WON;
-            } else {
-                return CROSSES_WON;
-            }
-        }
-        return IN_PROGRESS;
+    public void assertThat(Outcome outcome) {
+        assert gameOutcome.getOutcome() == outcome;
     }
 }
