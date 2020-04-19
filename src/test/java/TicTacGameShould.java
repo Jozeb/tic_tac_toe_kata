@@ -20,14 +20,14 @@ public class TicTacGameShould {
     @Test
     public void indicateEmptyPosition() {
         new TicTacGame()
-                .assertThatGameIs(EMPTY, at(Row.ONE, Column.ONE));
+                .assertThat(EMPTY, at(Row.ONE, Column.ONE));
     }
 
     @Test
     public void playCross() throws WrongPlayException {
         new TicTacGame()
                 .play(CROSS, at(Row.ONE, Column.ONE))
-                .assertThatGameIs(CROSS, at(Row.ONE, Column.ONE));
+                .assertThat(CROSS, at(Row.ONE, Column.ONE));
     }
 
     @Test(expected = PositionAlreadyFilledException.class)
@@ -42,7 +42,7 @@ public class TicTacGameShould {
         new TicTacGame()
                 .play(CROSS, at(Row.ONE, Column.ONE))
                 .play(NOUGHT, at(Row.ONE, Column.TWO))
-                .assertThatGameIs(NOUGHT, at(Row.ONE, Column.TWO));
+                .assertThat(NOUGHT, at(Row.ONE, Column.TWO));
     }
 
     @Test
@@ -51,7 +51,7 @@ public class TicTacGameShould {
                 .play(CROSS, at(Row.TWO, Column.TWO))
                 .play(NOUGHT, at(Row.ONE, Column.ONE))
                 .play(CROSS, at(Row.ONE, Column.TWO))
-                .assertThatGameIs(CROSS, at(Row.ONE, Column.TWO));
+                .assertThat(CROSS, at(Row.ONE, Column.TWO));
     }
 
     @Test(expected = MustPlayCrossFirstException.class)

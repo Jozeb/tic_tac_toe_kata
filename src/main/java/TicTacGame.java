@@ -19,7 +19,7 @@ public class TicTacGame {
         return this;
     }
 
-    public void assertThatGameIs(Marker marker, Position position) {
+    public void assertThat(Marker marker, Position position) {
         assert marker == board.whatIsAt(position);
     }
 
