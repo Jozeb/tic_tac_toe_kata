@@ -1,3 +1,4 @@
+import exception.MoveOutOfBounds;
 import exception.PlayCrossException;
 import exception.PlayCrossFirstException;
 import exception.PlayNoughtException;
@@ -185,5 +186,11 @@ public class TicTacGameShould {
         new TicTacGame()
                 .play(CROSS, at(1, 1))
                 .assertThat(IN_PROGRESS);
+    }
+
+    @Test(expected = MoveOutOfBounds.class)
+    public void notAllowOutOfBoundMoves() throws WrongMoveException {
+        new TicTacGame()
+                .play(CROSS, at(0, 0));
     }
 }
