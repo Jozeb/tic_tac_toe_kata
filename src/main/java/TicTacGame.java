@@ -1,29 +1,26 @@
-import board.Board;
 import board.Marker;
+import board.StatefulBoard;
 import gameplay.GameState;
-import gameplay.validators.InvalidMoveDetector;
 import position.Position;
 import exception.WrongPlayException;
-import gameplay.GameOutcome;
+import turn.PlayerTurnChecks;
 
 public class TicTacGame {
 
-    final Board board = new Board();
-    final GameOutcome gameOutcome = new GameOutcome();
-    final InvalidMoveDetector invalidMoveDetector = new InvalidMoveDetector();
+    final PlayerTurnChecks playerTurnChecks = new PlayerTurnChecks();
+    final StatefulBoard statefulBoard = new StatefulBoard();
 
     public TicTacGame play(Marker marker, Position position) throws WrongPlayException {
-        invalidMoveDetector.detect(marker, position, gameOutcome.getGameState());
-        board.add(marker, position);
-        gameOutcome.updateBasedOn(board);
+        playerTurnChecks.runFor(marker, position);
+        statefulBoard.play(marker, position);
         return this;
     }
 
     public void assertThat(Marker marker, Position position) {
-        assert marker == board.whatIsAt(position);
+        assert statefulBoard.exists(marker, position);
     }
 
     public void assertThatGameIs(GameState gameState) {
-        assert gameState == gameOutcome.getGameState();
+        assert statefulBoard.isState(gameState);
     }
 }

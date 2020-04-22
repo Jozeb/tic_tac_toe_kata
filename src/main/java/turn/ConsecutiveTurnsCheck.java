@@ -1,6 +1,7 @@
 package turn;
 
 import board.Marker;
+import position.Position;
 import turn.exception.CannotPlayNoughtException;
 import turn.exception.CannotPlayCrossException;
 import exception.WrongPlayException;
@@ -20,7 +21,7 @@ public class ConsecutiveTurnsCheck implements PlayerTurnCheck {
         put(CROSS, new CannotPlayCrossException());
     }};
 
-    public void forThe(Marker marker) throws WrongPlayException {
+    public void forThe(Marker marker, Position position) throws WrongPlayException {
         if (lastMarkerAlso(marker)) {
             throw EXCEPTION_TO_THROW.get(marker);
         }
