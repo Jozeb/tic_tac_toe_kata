@@ -5,20 +5,30 @@ import static gameplay.GameState.WON_BY_NOUGHTS;
 
 import board.Board;
 import gameplay.GameState;
+import position.Positions;
 import win.AllWinningPositions;
+
+import java.util.function.Predicate;
 
 public class NoughtWinValidator implements BoardValidator {
 
-  final AllWinningPositions allWinningPositions = new AllWinningPositions();
+    final AllWinningPositions allWinningPositions = new AllWinningPositions();
 
-  @Override
-  public boolean isGameFinished(Board board) {
-    return allWinningPositions.stream()
-        .anyMatch(positions -> board.markersAreAllTheSameAt(positions, NOUGHT));
-  }
+    @Override
+    public boolean isGameFinished(Board board) {
+        return allWinningPositions
+                .stream()
+                .anyMatch(matchAll(board));
+    }
 
-  @Override
-  public GameState getGameState() {
-    return WON_BY_NOUGHTS;
-  }
+    private Predicate<Positions> matchAll(Board board) {
+        return positions -> positions.stream()
+                .map(board::whatIsAt)
+                .allMatch(NOUGHT::equals);
+    }
+
+    @Override
+    public GameState getGameState() {
+        return WON_BY_NOUGHTS;
+    }
 }
