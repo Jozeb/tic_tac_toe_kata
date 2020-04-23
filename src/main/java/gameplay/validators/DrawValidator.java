@@ -21,7 +21,8 @@ public class DrawValidator implements BoardValidator {
 
     @Override
     public boolean isGameFinished(Board board) {
-        return enumeratePositions().map(board::whatIsAt)
+        return enumeratePositions()
+                .map(board::whatIsAt)
                 .noneMatch(Marker::isEmpty);
     }
 
