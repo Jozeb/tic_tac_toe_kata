@@ -13,7 +13,10 @@ public class AllBoardValidators {
     List<BoardValidator> boardValidators;
 
     public AllBoardValidators() {
-        boardValidators = Arrays.asList(new NoughtWinValidator(), new CrossWinValidator(), new DrawValidator());
+        boardValidators = Arrays.asList(
+                new NoughtWinValidator(),
+                new CrossWinValidator(),
+                new DrawValidator());
     }
 
     public GameState validate(Board board) {
